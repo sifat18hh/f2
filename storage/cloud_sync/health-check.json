@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-06-20T05:35:08.957Z",
+  "nodes": [
+    {
+      "id": "node-1",
+      "status": "healthy",
+      "usage": "0%"
+    },
+    {
+      "id": "node-2",
+      "status": "healthy",
+      "usage": "0%"
+    },
+    {
+      "id": "node-3",
+      "status": "healthy",
+      "usage": "0%"
+    },
+    {
+      "id": "node-4",
+      "status": "healthy",
+      "usage": "0%"
+    }
+  ],
+  "totalCapacity": "unlimited",
+  "availableSpace": "unlimited",
+  "status": "optimal"
+}

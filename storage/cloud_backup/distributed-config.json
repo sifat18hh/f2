@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "node-1",
+      "location": "primary",
+      "capacity": "unlimited"
+    },
+    {
+      "id": "node-2",
+      "location": "backup",
+      "capacity": "unlimited"
+    },
+    {
+      "id": "node-3",
+      "location": "distributed",
+      "capacity": "unlimited"
+    },
+    {
+      "id": "node-4",
+      "location": "cloud",
+      "capacity": "unlimited"
+    }
+  ],
+  "replication": 3,
+  "loadBalancing": true,
+  "autoFailover": true,
+  "unlimited": true
+}

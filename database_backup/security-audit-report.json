@@ -1,0 +1,75 @@
+{
+  "timestamp": "2025-06-20T17:29:18.157Z",
+  "totalIssues": 9,
+  "highSeverity": 4,
+  "mediumSeverity": 5,
+  "issues": [
+    {
+      "type": "Sensitive File Exposure",
+      "file": "secure_config/admin-credentials.json",
+      "severity": "HIGH",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File Exposure",
+      "file": "storage/cloud_sync/oauth2client.js",
+      "severity": "HIGH",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File Exposure",
+      "file": "storage/cloud_sync/pluggable-auth-client.js",
+      "severity": "HIGH",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File Exposure",
+      "file": "storage/cloud_sync/stscredentials.js",
+      "severity": "HIGH",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Dangerous Code Pattern",
+      "file": "auto-system-manager.js",
+      "severity": "MEDIUM",
+      "pattern": "system\\s*\\(",
+      "description": "Potentially dangerous code execution"
+    },
+    {
+      "type": "Dangerous Code Pattern",
+      "file": "storage/cloud_sync/baseexternalclient.js",
+      "severity": "MEDIUM",
+      "pattern": "exec\\s*\\(",
+      "description": "Potentially dangerous code execution"
+    },
+    {
+      "type": "Dangerous Code Pattern",
+      "file": "storage/cloud_sync/file.js",
+      "severity": "MEDIUM",
+      "pattern": "exec\\s*\\(",
+      "description": "Potentially dangerous code execution"
+    },
+    {
+      "type": "Dangerous Code Pattern",
+      "file": "storage/cloud_sync/oauth2client.js",
+      "severity": "MEDIUM",
+      "pattern": "exec\\s*\\(",
+      "description": "Potentially dangerous code execution"
+    },
+    {
+      "type": "Dangerous Code Pattern",
+      "file": "storage/cloud_sync/strnum.js",
+      "severity": "MEDIUM",
+      "pattern": "exec\\s*\\(",
+      "description": "Potentially dangerous code execution"
+    }
+  ],
+  "recommendations": [
+    "Move sensitive data to environment variables",
+    "Remove or secure backup files with credentials",
+    "Implement proper input validation",
+    "Regular security audits",
+    "Use HTTPS in production",
+    "Implement rate limiting"
+  ]
+}

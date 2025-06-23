@@ -1,0 +1,15 @@
+{
+  "unlimited": true,
+  "autoDistribute": true,
+  "compression": true,
+  "cloudBackup": true,
+  "maxFileSize": "unlimited",
+  "totalStorage": "unlimited",
+  "providers": [
+    "replit-primary",
+    "replit-backup-1",
+    "replit-backup-2",
+    "distributed-storage"
+  ],
+  "createdAt": "2025-06-20T05:26:27.016Z"
+}

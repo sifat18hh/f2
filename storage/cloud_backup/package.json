@@ -1,0 +1,50 @@
+{
+  "name": "tubeclone",
+  "version": "1.0.0",
+  "description": "A YouTube clone built with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "server": "node index.js",
+    "backup": "node package-manager-cli.js backup",
+    "restore": "node package-manager-cli.js restore",
+    "check": "node package-manager-cli.js status",
+    "deploy-setup": "node deploy-setup.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo 'Build completed'",
+    "postinstall": "echo 'Installation completed'"
+  },
+  "keywords": [
+    "video",
+    "youtube",
+    "clone",
+    "streaming"
+  ],
+  "author": "TubeClone Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^6.11.2",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^7.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

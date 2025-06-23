@@ -1,0 +1,1005 @@
+{
+  "totalFiles": 464,
+  "totalSize": 14904781,
+  "fileTypes": {
+    "JavaScript": {
+      "count": 106,
+      "size": 2108557
+    },
+    "CSS": {
+      "count": 2,
+      "size": 158464
+    },
+    "HTML": {
+      "count": 7,
+      "size": 396610
+    },
+    "JSON": {
+      "count": 111,
+      "size": 169461
+    },
+    "Other": {
+      "count": 211,
+      "size": 4134887
+    },
+    "Image": {
+      "count": 15,
+      "size": 1473147
+    },
+    "Text": {
+      "count": 1,
+      "size": 113
+    },
+    "Video": {
+      "count": 6,
+      "size": 6428280
+    },
+    "Markdown": {
+      "count": 5,
+      "size": 35262
+    }
+  },
+  "errors": [],
+  "warnings": [
+    {
+      "type": "Potential JavaScript Error",
+      "path": "advanced-ai-monitor.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "check-super-ai.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "script.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/_stream_readable.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/_stream_transform.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/_stream_writable.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/abort-controller.umd.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/async_iterator.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/baseexternalclient.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/bignumber.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/browser.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/bucket.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/event-target-shim.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/event-target-shim.umd.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/file.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/form_data.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/gaxios.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/helpers.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/logging-utils.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/node.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/oauth2client.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/pipeline.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/pluggable-auth-client.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/resumable-upload.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/retry.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/storage.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/stscredentials.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/transfer-manager.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/v1.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "storage/cloud_sync/verify-stream.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "super-advanced-ai.js",
+      "description": "File may contain error handling issues"
+    },
+    {
+      "type": "Potential JavaScript Error",
+      "path": "website-file-scanner.js",
+      "description": "File may contain error handling issues"
+    }
+  ],
+  "securityIssues": [
+    {
+      "type": "Suspicious Code",
+      "path": "admin-script.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "auto-system-manager.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "database_backup/deploy.config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "database_backup/engagement-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "error-monitor.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "index.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "secure_config/admin-credentials.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "secure_config/deploy.config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "secure_config/engagement-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "startup-script.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_backup/cloud-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_backup/config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_backup/deploy.config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_backup/distributed-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_backup/engagement-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_backup/index.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_sync/baseexternalclient.js",
+      "risk": "Medium",
+      "pattern": "exec\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_sync/cloud-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_sync/deploy.config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_sync/distributed-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_sync/engagement-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_sync/file.js",
+      "risk": "Medium",
+      "pattern": "exec\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_sync/index.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_sync/oauth2client.js",
+      "risk": "Medium",
+      "pattern": "exec\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "storage/cloud_sync/strnum.js",
+      "risk": "Medium",
+      "pattern": "exec\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/cloud_sync/stscredentials.js",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Sensitive File",
+      "path": "storage/distributed-config.json",
+      "risk": "High",
+      "description": "File may contain sensitive information"
+    },
+    {
+      "type": "Suspicious Code",
+      "path": "system_backup/index.js",
+      "risk": "Medium",
+      "pattern": "system\\s*\\(",
+      "description": "File contains potentially dangerous code"
+    }
+  ],
+  "duplicates": [
+    {
+      "original": "app.json",
+      "duplicate": "database_backup/app.json",
+      "size": "295 Bytes"
+    },
+    {
+      "original": "categories.json",
+      "duplicate": "database_backup/categories.json",
+      "size": "571 Bytes"
+    },
+    {
+      "original": "database_backup/earnings.json",
+      "duplicate": "earnings.json",
+      "size": "80 Bytes"
+    },
+    {
+      "original": "database_backup/google-campaigns.json",
+      "duplicate": "google-campaigns.json",
+      "size": "4 Bytes"
+    },
+    {
+      "original": "package.json",
+      "duplicate": "package_backup/package.json",
+      "size": "1.29 KB"
+    },
+    {
+      "original": "database_backup/deploy.config.json",
+      "duplicate": "secure_config/deploy.config.json",
+      "size": "243 Bytes"
+    },
+    {
+      "original": "database_backup/engagement-config.json",
+      "duplicate": "secure_config/engagement-config.json",
+      "size": "134 Bytes"
+    },
+    {
+      "original": "database_backup/seo-optimized-meta.json",
+      "duplicate": "seo-optimized-meta.json",
+      "size": "826 Bytes"
+    },
+    {
+      "original": "database_backup/site-settings.json",
+      "duplicate": "site-settings.json",
+      "size": "173 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+      "duplicate": "storage/cloud_backup/1750347269146-1746376848908.mp4",
+      "size": "1.02 MB"
+    },
+    {
+      "original": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+      "duplicate": "storage/cloud_backup/1750354029685-1746376848908.mp4",
+      "size": "1.02 MB"
+    },
+    {
+      "original": "ads.json",
+      "duplicate": "storage/cloud_backup/ads.json",
+      "size": "2 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/agent-ledger",
+      "duplicate": "storage/cloud_backup/agent-ledger.lock",
+      "size": "41 Bytes"
+    },
+    {
+      "original": "ai-content-suggestions.json",
+      "duplicate": "storage/cloud_backup/ai-content-suggestions.json",
+      "size": "716 Bytes"
+    },
+    {
+      "original": "app.json",
+      "duplicate": "storage/cloud_backup/app.json",
+      "size": "295 Bytes"
+    },
+    {
+      "original": "storage/cloud-config.json",
+      "duplicate": "storage/cloud_backup/cloud-config.json",
+      "size": "170 Bytes"
+    },
+    {
+      "original": "database_backup/deploy.config.json",
+      "duplicate": "storage/cloud_backup/deploy.config.json",
+      "size": "243 Bytes"
+    },
+    {
+      "original": "database_backup/engagement-config.json",
+      "duplicate": "storage/cloud_backup/engagement-config.json",
+      "size": "134 Bytes"
+    },
+    {
+      "original": "database_backup/google-campaigns.json",
+      "duplicate": "storage/cloud_backup/google-campaigns.json",
+      "size": "4 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/agent-ledger",
+      "duplicate": "storage/cloud_backup/replit-agent",
+      "size": "41 Bytes"
+    },
+    {
+      "original": "database_backup/seo-optimized-meta.json",
+      "duplicate": "storage/cloud_backup/seo-optimized-meta.json",
+      "size": "826 Bytes"
+    },
+    {
+      "original": "database_backup/site-settings.json",
+      "duplicate": "storage/cloud_backup/site-settings.json",
+      "size": "173 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/54ac94a06e70b1457438a3520263c41ba0befb",
+      "duplicate": "storage/cloud_backup/tmp_obj_pZzrc2",
+      "size": "349 Bytes"
+    },
+    {
+      "original": "database_backup/vercel.json",
+      "duplicate": "storage/cloud_backup/vercel.json",
+      "size": "469 Bytes"
+    },
+    {
+      "original": "database_backup/videos.json",
+      "duplicate": "storage/cloud_backup/videos.json",
+      "size": "810 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/124a401290e79703c8ff24a71ff8430317e776",
+      "duplicate": "storage/cloud_sync/124a401290e79703c8ff24a71ff8430317e776",
+      "size": "592 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/20469c3bdfd4afa4994e9032872773fff7a8e3",
+      "duplicate": "storage/cloud_sync/20469c3bdfd4afa4994e9032872773fff7a8e3",
+      "size": "38.07 KB"
+    },
+    {
+      "original": "storage/cloud_backup/23bf4d1f36afd125fa6f5d8d56535f7c1124b0",
+      "duplicate": "storage/cloud_sync/23bf4d1f36afd125fa6f5d8d56535f7c1124b0",
+      "size": "155 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/3163c3e25d1414e5e47172b43a52a07db52b5e",
+      "duplicate": "storage/cloud_sync/3163c3e25d1414e5e47172b43a52a07db52b5e",
+      "size": "105 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/316ce63b583f5cbe023208243d06a2f87db73a",
+      "duplicate": "storage/cloud_sync/316ce63b583f5cbe023208243d06a2f87db73a",
+      "size": "309 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/366f60ba7ccf46469b6038a73bf8e1fbb35ddc",
+      "duplicate": "storage/cloud_sync/366f60ba7ccf46469b6038a73bf8e1fbb35ddc",
+      "size": "76 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/37a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+      "duplicate": "storage/cloud_sync/37a088a01e8ddab3bf3fa98dbe804cbde1a0dc",
+      "size": "17 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/54ac94a06e70b1457438a3520263c41ba0befb",
+      "duplicate": "storage/cloud_sync/54ac94a06e70b1457438a3520263c41ba0befb",
+      "size": "349 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/87723be2c7436210a955d314bd1331c0f7fba3",
+      "duplicate": "storage/cloud_sync/87723be2c7436210a955d314bd1331c0f7fba3",
+      "size": "19 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/8b8b8688aae82abb3c20a38c419994b5243007",
+      "duplicate": "storage/cloud_sync/8b8b8688aae82abb3c20a38c419994b5243007",
+      "size": "500 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/9685f487194fde06cbc7482982fb83f5680b1c",
+      "duplicate": "storage/cloud_sync/9685f487194fde06cbc7482982fb83f5680b1c",
+      "size": "267 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/980ec824ce96dacd68c796a5430b6419edc1ab",
+      "duplicate": "storage/cloud_sync/980ec824ce96dacd68c796a5430b6419edc1ab",
+      "size": "415 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/EntitiesParser.js",
+      "duplicate": "storage/cloud_sync/EntitiesParser.js.backup",
+      "size": "3.72 KB"
+    },
+    {
+      "original": "storage/cloud_sync/TagPathMatcher.js",
+      "duplicate": "storage/cloud_sync/TagPathMatcher.js.backup",
+      "size": "261 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/a252db91b88f444a8c5dadbbf87981bef783e8",
+      "duplicate": "storage/cloud_sync/a252db91b88f444a8c5dadbbf87981bef783e8",
+      "size": "331 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/acl.js",
+      "duplicate": "storage/cloud_sync/acl.js.backup",
+      "size": "25.79 KB"
+    },
+    {
+      "original": "storage/cloud_backup/ad3ec0bebe843de5934273ce0832aa27f3a8a1",
+      "duplicate": "storage/cloud_sync/ad3ec0bebe843de5934273ce0832aa27f3a8a1",
+      "size": "194 Bytes"
+    },
+    {
+      "original": "ads.json",
+      "duplicate": "storage/cloud_sync/ads.json",
+      "size": "2 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/agent-ledger",
+      "duplicate": "storage/cloud_sync/agent-ledger.lock",
+      "size": "41 Bytes"
+    },
+    {
+      "original": "ai-content-suggestions.json",
+      "duplicate": "storage/cloud_sync/ai-content-suggestions.json",
+      "size": "716 Bytes"
+    },
+    {
+      "original": "app.json",
+      "duplicate": "storage/cloud_sync/app.json",
+      "size": "295 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/ba225de0146ec852e29ab7efffd67d85f3d765",
+      "duplicate": "storage/cloud_sync/ba225de0146ec852e29ab7efffd67d85f3d765",
+      "size": "299 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/bd90459f9074f09e3d5196fefa129ff47ab276",
+      "duplicate": "storage/cloud_sync/bd90459f9074f09e3d5196fefa129ff47ab276",
+      "size": "222 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/categories.json",
+      "duplicate": "storage/cloud_sync/categories.json",
+      "size": "518 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/cli.js",
+      "duplicate": "storage/cloud_sync/cli.js.backup",
+      "size": "2.46 KB"
+    },
+    {
+      "original": "storage/cloud-config.json",
+      "duplicate": "storage/cloud_sync/cloud-config.json",
+      "size": "170 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/crc32c.js",
+      "duplicate": "storage/cloud_sync/crc32c.js.backup",
+      "size": "11.71 KB"
+    },
+    {
+      "original": "database_backup/deploy.config.json",
+      "duplicate": "storage/cloud_sync/deploy.config.json",
+      "size": "243 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/distributed-config.json",
+      "duplicate": "storage/cloud_sync/distributed-config.json",
+      "size": "486 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/earnings.json",
+      "duplicate": "storage/cloud_sync/earnings.json",
+      "size": "80 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/ec93c40dcc06512ee12854cac4e6ff5c21f649",
+      "duplicate": "storage/cloud_sync/ec93c40dcc06512ee12854cac4e6ff5c21f649",
+      "size": "169 Bytes"
+    },
+    {
+      "original": "database_backup/engagement-config.json",
+      "duplicate": "storage/cloud_sync/engagement-config.json",
+      "size": "134 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/f13f431f8b8b1886154bc733b04f8e76844164",
+      "duplicate": "storage/cloud_sync/f13f431f8b8b1886154bc733b04f8e76844164",
+      "size": "235 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/f2ced09a82d0c99f3f32b94d9c7b5c97c902d9",
+      "duplicate": "storage/cloud_sync/f2ced09a82d0c99f3f32b94d9c7b5c97c902d9",
+      "size": "54.49 KB"
+    },
+    {
+      "original": "storage/cloud_sync/file.js",
+      "duplicate": "storage/cloud_sync/file.js.backup",
+      "size": "144.05 KB"
+    },
+    {
+      "original": "database_backup/google-campaigns.json",
+      "duplicate": "storage/cloud_sync/google-campaigns.json",
+      "size": "4 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/index.lock",
+      "duplicate": "storage/cloud_sync/index.lock",
+      "size": "0 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/named-references.js",
+      "duplicate": "storage/cloud_sync/named-references.js.backup",
+      "size": "27.33 KB"
+    },
+    {
+      "original": "object-storage-api.js",
+      "duplicate": "storage/cloud_sync/object-storage-api.js",
+      "size": "3.91 KB"
+    },
+    {
+      "original": "package.json",
+      "duplicate": "storage/cloud_sync/package.json",
+      "size": "1.29 KB"
+    },
+    {
+      "original": "storage/cloud_sync/parse.js",
+      "duplicate": "storage/cloud_sync/parse.js.backup",
+      "size": "1.08 KB"
+    },
+    {
+      "original": "storage/cloud_sync/regex.js",
+      "duplicate": "storage/cloud_sync/regex.js.backup",
+      "size": "133 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/agent-ledger",
+      "duplicate": "storage/cloud_sync/replit-agent",
+      "size": "41 Bytes"
+    },
+    {
+      "original": "database_backup/seo-optimized-meta.json",
+      "duplicate": "storage/cloud_sync/seo-optimized-meta.json",
+      "size": "826 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/sha1.js",
+      "duplicate": "storage/cloud_sync/sha1.js.backup",
+      "size": "284 Bytes"
+    },
+    {
+      "original": "database_backup/site-settings.json",
+      "duplicate": "storage/cloud_sync/site-settings.json",
+      "size": "173 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/storage.js",
+      "duplicate": "storage/cloud_sync/storage.js.backup",
+      "size": "44.77 KB"
+    },
+    {
+      "original": "storage/cloud_sync/stringify.js",
+      "duplicate": "storage/cloud_sync/stringify.js.backup",
+      "size": "1.43 KB"
+    },
+    {
+      "original": "storage/cloud_sync/80bbf0b0b79ac85b6bf10eaedd231af1db82fd",
+      "duplicate": "storage/cloud_sync/tmp_obj_78xmjY",
+      "size": "343 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/3702749e7a019b526714b061da16a2caf0490e",
+      "duplicate": "storage/cloud_sync/tmp_obj_hCDejt",
+      "size": "343 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/54ac94a06e70b1457438a3520263c41ba0befb",
+      "duplicate": "storage/cloud_sync/tmp_obj_pZzrc2",
+      "size": "349 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/users.json",
+      "duplicate": "storage/cloud_sync/users.json",
+      "size": "1.03 KB"
+    },
+    {
+      "original": "storage/cloud_sync/v1.js",
+      "duplicate": "storage/cloud_sync/v1.js.backup",
+      "size": "3.24 KB"
+    },
+    {
+      "original": "storage/cloud_sync/v3.js",
+      "duplicate": "storage/cloud_sync/v3.js.backup",
+      "size": "107 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/v35.js",
+      "duplicate": "storage/cloud_sync/v35.js.backup",
+      "size": "1.62 KB"
+    },
+    {
+      "original": "storage/cloud_sync/validate.js",
+      "duplicate": "storage/cloud_sync/validate.js.backup",
+      "size": "141 Bytes"
+    },
+    {
+      "original": "database_backup/vercel.json",
+      "duplicate": "storage/cloud_sync/vercel.json",
+      "size": "469 Bytes"
+    },
+    {
+      "original": "database_backup/videos.json",
+      "duplicate": "storage/cloud_sync/videos.json",
+      "size": "810 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/distributed-config.json",
+      "duplicate": "storage/distributed-config.json",
+      "size": "486 Bytes"
+    },
+    {
+      "original": "storage/cloud_sync/health-check.json",
+      "duplicate": "storage/health-check.json",
+      "size": "478 Bytes"
+    },
+    {
+      "original": "ads.json",
+      "duplicate": "system_backup/ads.json",
+      "size": "2 Bytes"
+    },
+    {
+      "original": "categories.json",
+      "duplicate": "system_backup/categories.json",
+      "size": "571 Bytes"
+    },
+    {
+      "original": "database_backup/earnings.json",
+      "duplicate": "system_backup/earnings.json",
+      "size": "80 Bytes"
+    },
+    {
+      "original": "index.js",
+      "duplicate": "system_backup/index.js",
+      "size": "167.35 KB"
+    },
+    {
+      "original": "package.json",
+      "duplicate": "system_backup/package.json",
+      "size": "1.29 KB"
+    },
+    {
+      "original": "database_backup/users.json",
+      "duplicate": "system_backup/users.json",
+      "size": "1.06 KB"
+    },
+    {
+      "original": "database_backup/videos.json",
+      "duplicate": "system_backup/videos.json",
+      "size": "810 Bytes"
+    },
+    {
+      "original": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+      "duplicate": "uploads/1750231554260-1746376848908.mp4",
+      "size": "1.02 MB"
+    },
+    {
+      "original": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+      "duplicate": "uploads/1750347269146-1746376848908.mp4",
+      "size": "1.02 MB"
+    },
+    {
+      "original": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+      "duplicate": "uploads/1750354029685-1746376848908.mp4",
+      "size": "1.02 MB"
+    },
+    {
+      "original": "database_backup/users.json",
+      "duplicate": "users.json",
+      "size": "1.06 KB"
+    },
+    {
+      "original": "database_backup/vercel.json",
+      "duplicate": "vercel.json",
+      "size": "469 Bytes"
+    },
+    {
+      "original": "database_backup/videos.json",
+      "duplicate": "videos.json",
+      "size": "810 Bytes"
+    },
+    {
+      "original": "database_backup/website-scan-report-1750432753988.json",
+      "duplicate": "website-scan-report-1750432753988.json",
+      "size": "29.09 KB"
+    },
+    {
+      "original": "database_backup/website-scan-report-1750432813056.json",
+      "duplicate": "website-scan-report-1750432813056.json",
+      "size": "29.26 KB"
+    }
+  ],
+  "largeFiles": [],
+  "emptyFiles": [
+    "storage/cloud_backup/index.lock",
+    "storage/cloud_sync/index.lock"
+  ],
+  "scanDate": "2025-06-20T17:29:20.707Z",
+  "directories": [
+    {
+      "path": "attached_assets",
+      "size": 1458891,
+      "fileCount": 14
+    },
+    {
+      "path": "database_backup",
+      "size": 67233,
+      "fileCount": 15
+    },
+    {
+      "path": "health_reports",
+      "size": 3588,
+      "fileCount": 12
+    },
+    {
+      "path": "package_backup",
+      "size": 2087,
+      "fileCount": 3
+    },
+    {
+      "path": "performance_reports",
+      "size": 3599,
+      "fileCount": 11
+    },
+    {
+      "path": "secure_config",
+      "size": 502,
+      "fileCount": 3
+    },
+    {
+      "path": "storage",
+      "size": 8762777,
+      "fileCount": 339
+    },
+    {
+      "path": "storage/backup",
+      "size": 0,
+      "fileCount": 0
+    },
+    {
+      "path": "storage/cloud_backup",
+      "size": 3491402,
+      "fileCount": 52
+    },
+    {
+      "path": "storage/cloud_sync",
+      "size": 5269811,
+      "fileCount": 282
+    },
+    {
+      "path": "storage/distributed",
+      "size": 0,
+      "fileCount": 0
+    },
+    {
+      "path": "storage/overflow",
+      "size": 0,
+      "fileCount": 0
+    },
+    {
+      "path": "storage/primary",
+      "size": 0,
+      "fileCount": 0
+    },
+    {
+      "path": "system_backup",
+      "size": 175664,
+      "fileCount": 8
+    },
+    {
+      "path": "thumbnails",
+      "size": 0,
+      "fileCount": 0
+    },
+    {
+      "path": "uploads",
+      "size": 3214140,
+      "fileCount": 3
+    }
+  ],
+  "insights": {
+    "mostCommonFileType": {
+      "type": "Other",
+      "count": 211
+    },
+    "averageFileSize": 32122.372844827587,
+    "largestDirectory": {
+      "path": "storage",
+      "size": 8762777,
+      "fileCount": 339
+    },
+    "duplicateCount": 100,
+    "securityScore": 0
+  },
+  "generatedAt": "2025-06-20T17:29:21.470Z",
+  "scanDuration": 764
+}

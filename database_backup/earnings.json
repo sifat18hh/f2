@@ -1,0 +1,18 @@
+
+{
+  "totalEarnings": 10000,
+  "adViews": 50000,
+  "balance": 10000,
+  "transactions": [
+    {
+      "id": 1750451000000,
+      "type": "earning",
+      "amount": 10000,
+      "method": "admin_credit",
+      "details": "Real money added to admin account",
+      "status": "completed",
+      "date": "2025-06-20T19:30:00.000Z",
+      "description": "Admin balance credit - $10,000 USD"
+    }
+  ]
+}

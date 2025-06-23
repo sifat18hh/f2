@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>TubeClone - Next Gen Video Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Row: Menu, Logo, Profile -->
+        <div class="header-top-row">
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <span>TubeClone</span>
+            </div>
+            <div class="header-actions">
+                <button class="upload-btn" id="uploadBtn" style="display: none;">
+                    <i class="fas fa-video"></i>
+                    <span>Upload</span>
+                </button>
+                <div class="auth-buttons" id="authButtons">
+                    <button class="auth-btn login-btn" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
+                    </button>
+                    <button class="auth-btn register-btn" id="registerBtn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Register</span>
+                    </button>
+                </div>
+                <div class="user-menu" id="userMenu" style="display: none;">
+                    <div class="user-info" id="userInfo">
+                        <div class="user-avatar" id="userAvatar"></div>
+                        <span class="username" id="username"></span>
+                        <i class="fas fa-chevron-down" style="margin-left: 8px; font-size: 12px; transition: transform 0.3s ease;"></i>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <button class="dropdown-item" id="profileBtn" type="button">
+                            <i class="fas fa-user-circle"></i>
+                            <span>My Profile</span>
+                        </button>
+                        <button class="dropdown-item" id="settingsBtn" type="button">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </button>
+                        <button class="dropdown-item" id="myVideosBtn" type="button">
+                            <i class="fas fa-video"></i>
+                            <span>My Videos</span>
+                        </button>
+                        <button class="dropdown-item" id="playlistsBtn" type="button">
+                            <i class="fas fa-list"></i>
+                            <span>Playlists</span>
+                        </button>
+                        <button class="dropdown-item" id="siteSettingsBtn" type="button">
+                            <i class="fas fa-cogs"></i>
+                            <span>Site Settings</span>
+                        </button>
+                        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 8px 0;"></div>
+                        <button class="dropdown-item" id="logoutBtn" type="button">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Row -->
+        <div class="header-search-row">
+            <div class="search-container">
+                <input type="text" placeholder="Search videos..." class="search-input" id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Categories Row -->
+        <div class="header-categories-row">
+            <div class="categories-container" id="categoriesContainer">
+                <button class="category-btn active" data-category="all">
+                    <i class="fas fa-home"></i>
+                    <span>All</span>
+                </button>
+                <button class="category-btn" data-category="trending">
+                    <i class="fas fa-fire"></i>
+                    <span>Trending</span>
+                </button>
+                <button class="category-btn" data-category="music">
+                    <i class="fas fa-music"></i>
+                    <span>Music</span>
+                </button>
+                <button class="category-btn" data-category="gaming">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming</span>
+                </button>
+                <button class="category-btn" data-category="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Education</span>
+                </button>
+                <button class="category-btn" data-category="sports">
+                    <i class="fas fa-basketball-ball"></i>
+                    <span>Sports</span>
+                </button>
+                <button class="category-btn" data-category="tech">
+                    <i class="fas fa-laptop"></i>
+                    <span>Tech</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-fire"></i>
+                <span>Trending</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-list"></i>
+                <span>Subscriptions</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-clock"></i>
+                <span>History</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-thumbs-up"></i>
+                <span>Liked Videos</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Video Grid -->
+        <div class="video-grid" id="videoGrid">
+            <!-- Videos will be dynamically loaded here -->
+        </div>
+
+        <!-- Personalized Feed Section -->
+        <section id="personalized-feed" class="section">
+            <!-- Content will be loaded by JavaScript -->
+        </section>
+
+        <!-- Recommendations Section -->
+        <section id="recommendations-section" class="section">
+            <div id="recommendations">
+                <div class="recommendation-loading">
+                    <i class="fas fa-brain fa-spin"></i>
+                    <span style="margin-left: 10px;">AI সুপারিশ লোড হচ্ছে...</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to TubeClone</h2>
+                <button class="close-btn" id="closeLoginModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" class="input-field" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="input-field" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join TubeClone</h2>
+                <button class="close-btn" id="closeRegisterModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" id="registerUsername" class="input-field" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" class="input-field" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" class="input-field" placeholder="Create a password (min 6 characters)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm your password" required>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </button>
+                </form>
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content upload-modal-enhanced">
+            <div class="modal-header">
+                <h2><i class="fas fa-video"></i> Upload Video</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-progress-container" id="uploadProgress" style="display: none;">
+                    <div class="progress-header">
+                        <h3><i class="fas fa-upload"></i> Uploading Video...</h3>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <div class="upload-status">
+                        <span id="uploadStatus">Preparing upload...</span>
+                    </div>
+                </div>
+
+                <div class="upload-steps" id="uploadSteps">
+                    <!-- Step 1: File Selection -->
+                    <div class="upload-step active" id="step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Select Video File</h3>
+                        </div>
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h4>Choose Video File</h4>
+                            <p>Drag and drop your video here or click to browse</p>
+                            <div class="supported-formats">
+                                <span>Supported formats:</span>
+                                <div class="format-tags">
+                                    <span class="format-tag">MP4</span>
+                                    <span class="format-tag">AVI</span>
+                                    <span class="format-tag">MOV</span>
+                                    <span class="format-tag">WMV</span>
+                                    <span class="format-tag">FLV</span>
+                                </div>
+                            </div>
+                            <input type="file" id="videoFile" accept="video/*" hidden>
+                        </div>
+
+                        <div class="selected-file-info" id="selectedFileInfo" style="display: none;">
+                            <div class="file-preview">
+                                <div class="file-icon">
+                                    <i class="fas fa-file-video"></i>
+                                </div>
+                                <div class="file-details">
+                                    <div class="file-name" id="fileName"></div>
+                                    <div class="file-meta">
+                                        <span class="file-size" id="fileSize"></span>
+                                        <span class="file-type" id="fileType"></span>
+                                    </div>
+                                </div>
+                                <button class="change-file-btn" onclick="document.getElementById('videoFile').click()">
+                                    <i class="fas fa-edit"></i> Change
+                                </button>
+                            </div>
+                            <button class="next-step-btn" onclick="tubeClone.nextUploadStep(2)">
+                                <i class="fas fa-arrow-right"></i> Next Step
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Video Information -->
+                    <div class="upload-step" id="step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Video Information</h3>
+                        </div>
+                        <div class="video-info-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="videoTitle">
+                                        <i class="fas fa-heading"></i> Video Title *
+                                    </label>
+                                    <input type="text" id="videoTitle" class="input-field" placeholder="Enter an engaging title for your video" maxlength="100" required>
+                                    <div class="char-counter">
+                                        <span id="titleCounter">0</span>/100
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="videoDescription">
+                                        <i class="fas fa-align-left"></i> Description
+                                    </label>
+                                    <textarea id="videoDescription" class="input-field" placeholder="Tell viewers about your video" rows="4" maxlength="5000"></textarea>
+                                    <div class="char-counter">
+                                        <span id="descCounter">0</span>/5000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="videoTags">
+                                        <i class="fas fa-hashtag"></i> Tags & Keywords
+                                    </label>
+                                    <div class="tags-input-container">
+                                        <input type="text" id="videoTags" class="input-field" placeholder="Add tags separated by commas (e.g., gaming, tutorial, funny)" maxlength="500">
+                                        <div class="tags-suggestions">
+                                            <span class="suggestion-label">Popular tags:</span>
+                                            <button type="button" class="tag-suggestion" onclick="tubeClone.addTag('tutorial')">tutorial</button>
+                                            <button type="button" class="tag-suggestion" onclick="tubeClone.addTag('gaming')">gaming</button>
+                                            <button type="button" class="tag-suggestion" onclick="tubeClone.addTag('music')">music</button>
+                                            <button type="button" class="tag-suggestion" onclick="tubeClone.addTag('comedy')">comedy</button>
+                                            <button type="button" class="tag-suggestion" onclick="tubeClone.addTag('tech')">tech</button>
+                                        </div>
+                                    </div>
+                                    <div class="char-counter">
+                                        <span id="tagsCounter">0</span>/500
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="videoCategory">
+                                        <i class="fas fa-folder"></i> Category
+                                    </label>
+                                    <select id="videoCategory" class="input-field">
+                                        <option value="">Select a category</option>
+                                        <option value="entertainment">Entertainment</option>
+                                        <option value="education">Education</option>
+                                        <option value="gaming">Gaming</option>
+                                        <option value="music">Music</option>
+                                        <option value="sports">Sports</option>
+                                        <option value="tech">Technology</option>
+                                        <option value="lifestyle">Lifestyle</option>
+                                        <option value="news">News & Politics</option>
+                                        <option value="comedy">Comedy</option>
+                                        <option value="travel">Travel</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="step-navigation">
+                                <button class="prev-step-btn" onclick="tubeClone.nextUploadStep(1)">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button class="next-step-btn" onclick="tubeClone.nextUploadStep(3)">
+                                    <i class="fas fa-arrow-right"></i> Next Step
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Thumbnail & Advanced Settings -->
+                    <div class="upload-step" id="step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Thumbnail & Settings</h3>
+                        </div>
+                        <div class="thumbnail-settings">
+                            <div class="form-group">
+                                <label>
+                                    <i class="fas fa-image"></i> Video Thumbnail
+                                </label>
+                                <div class="thumbnail-options">
+                                    <div class="thumbnail-upload">
+                                        <div class="thumbnail-preview" id="thumbnailPreview">
+                                            <div class="thumbnail-placeholder">
+                                                <i class="fas fa-image"></i>
+                                                <p>Upload Custom Thumbnail</p>
+                                                <small>Recommended: 1280x720, JPG/PNG</small>
+                                            </div>
+                                            <img id="thumbnailImage" style="display: none;" alt="Thumbnail Preview">
+                                        </div>
+                                        <input type="file" id="thumbnailFile" accept="image/*" hidden>
+                                        <div class="thumbnail-actions">
+                                            <button type="button" class="upload-thumbnail-btn" onclick="document.getElementById('thumbnailFile').click()">
+                                                <i class="fas fa-upload"></i> Upload Thumbnail
+                                            </button>
+                                            <button type="button" class="remove-thumbnail-btn" id="removeThumbnail" style="display: none;" onclick="tubeClone.removeThumbnail()">
+                                                <i class="fas fa-trash"></i> Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="advanced-settings">
+                                <h4><i class="fas fa-cog"></i> Advanced Settings</h4>
+
+                                <div class="setting-group">
+                                    <div class="setting-item">
+                                        <label class="setting-label">
+                                            <input type="checkbox" id="enableComments" checked>
+                                            <span class="checkmark"></span>
+                                            <div class="setting-info">
+                                                <span class="setting-title">Allow Comments</span>
+                                                <span class="setting-desc">Let viewers comment on your video</span>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <label class="setting-label">
+                                            <input type="checkbox" id="enableRatings" checked>
+                                            <span class="checkmark"></span>
+                                            <div class="setting-info">
+                                                <span class="setting-title">Allow Ratings</span>
+                                                <span class="setting-desc">Let viewers like/dislike your video</span>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <label class="setting-label">
+                                            <input type="checkbox" id="notifySubscribers" checked>
+                                            <span class="checkmark"></span>
+                                            <div class="setting-info">
+                                                <span class="setting-title">Notify Subscribers</span>
+                                                <span class="setting-desc">Send notifications to your subscribers</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="privacy-settings">
+                                    <label for="videoPrivacy">
+                                        <i class="fas fa-shield-alt"></i> Privacy
+                                    </label>
+                                    <select id="videoPrivacy" class="input-field">
+                                        <option value="public">Public - Anyone can search for and view</option>
+                                        <option value="unlisted">Unlisted - Anyone with the link can view</option>
+                                        <option value="private">Private - Only you can view</option>
+                                    </select>
+                                </div>
+
+                                <div class="scheduling-settings">
+                                    <label class="setting-label">
+                                        <input type="checkbox" id="schedulePublish">
+                                        <span class="checkmark"></span>
+                                        <div class="setting-info">
+                                            <span class="setting-title">Schedule Publishing</span>
+                                            <span class="setting-desc">Publish this video at a specific time</span>
+                                        </div>
+                                    </label>
+                                    <div class="schedule-datetime" id="scheduleDateTime" style="display: none;">
+                                        <input type="datetime-local" id="publishDateTime" class="input-field">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-navigation">
+                                <button class="prev-step-btn" onclick="tubeClone.nextUploadStep(2)">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button class="upload-submit-btn" id="uploadSubmit">
+                                    <i class="fas fa-upload"></i> Upload Video
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Video Player Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-player-container">
+            <button class="close-video-btn" id="closeVideoModal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Enhanced Video Player -->
+            <div class="video-wrapper">
+                <video class="video-player" id="videoPlayer" controls preload="metadata">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Custom Video Controls Overlay -->
+                <div class="video-controls-overlay" id="videoControlsOverlay">
+                    <div class="play-pause-overlay" id="playPauseOverlay">
+                        <i class="fas fa-play" id="playPauseIcon"></i>
+                    </div>
+                    <div class="video-progress-container">
+                        <div class="video-progress" id="videoProgress">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                        <div class="video-time">
+                            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Information Panel -->
+            <div class="video-info-panel">
+                <div class="video-primary-info">
+                    <h1 class="video-title" id="currentVideoTitle"></h1>
+                    <div class="video-meta-info">
+                        <div class="video-stats-left">
+                            <span class="views" id="currentVideoViews">0 views</span>
+                            <span class="upload-date" id="currentVideoDate"></span>
+                        </div>
+                        <div class="video-actions-modern">
+                            <button class="modern-action-btn like-btn" id="likeBtn">
+                                <i class="fas fa-thumbs-up"></i>
+                                <span id="likeCount">0</span>
+                            </button>
+                            <button class="modern-action-btn" id="dislikeBtn">
+                                <i class="fas fa-thumbs-down"></i>
+                                <span id="dislikeCount">0</span>
+                            </button>
+                        <button class="modern-action-btn" id="saveToPlaylistBtn" onclick="tubeClone.showPlaylistModal()">
+                            <i class="fas fa-plus"></i>
+                            <span>Save</span>
+                        </button>
+                            <button class="modern-action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>Share</span>
+                            </button>
+                            <button class="modern-action-btn download-btn">
+                                <i class="fas fa-download"></i>
+                                <span>Download</span>
+                            </button>
+                            <button class="modern-action-btn more-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel Info -->
+                <div class="channel-info">
+                    <div class="channel-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="channel-details">
+                        <div class="channel-name">TubeClone Creator</div>
+                        <div class="channel-subscribers">1.2M subscribers</div>
+                    </div>
+                    <button class="subscribe-btn" onclick="tubeClone.toggleSubscription()">Subscribe</button>
+                </div>
+
+                <!-- Video Description -->
+                <div class="video-description-section">
+                    <div class="description-content" id="currentVideoDescription"></div>
+                    <button class="show-more-btn" id="showMoreBtn">Show more</button>
+                </div>
+
+                <!-- Enhanced Comments Section -->
+                <div class="comments-section-modern">
+                    <div class="comments-header">
+                        <h3><span id="commentCount">0</span> Comments</h3>
+                        <div class="comments-sort">
+                            <i class="fas fa-sort"></i>
+                            <span>Sort by</span>
+                        </div>
+                    </div>
+                    <div class="comment-input-modern">
+                        <div class="comment-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <input type="text" placeholder="Add a comment..." id="commentInput" class="comment-input-field">
+                        <button class="comment-submit-btn" id="commentBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="comments-list-modern" id="commentsList">
+                        <!-- Comments will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Videos Sidebar -->
+            <div class="related-videos-sidebar">
+                <h3 class="related-videos-title">
+                    <i class="fas fa-video"></i>
+                    Up Next
+                </h3>
+                <div class="related-videos-container" id="relatedVideos">
+                    <!-- Related videos will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Playlist Modal -->
+    <div class="modal" id="playlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Save to Playlist</h2>
+                <button class="close-btn" onclick="tubeClone.closePlaylistModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="playlists-list" id="playlistsList">
+                    <!-- Playlists will be loaded here -->
+                </div>
+                <button class="create-playlist-btn" onclick="tubeClone.createNewPlaylist()">
+                    <i class="fas fa-plus"></i> Create New Playlist
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Playlist Modal -->
+    <div class="modal" id="createPlaylistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Playlist</h2>
+                <button class="close-btn" onclick="tubeClone.closeCreatePlaylistModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="playlistName">Name</label>
+                    <input type="text" id="playlistName" class="input-field" placeholder="Enter playlist name" required>
+                </div>
+                <div class="form-group">
+                    <label for="playlistDescription">Description</label>
+                    <textarea id="playlistDescription" class="input-field" placeholder="Enter description (optional)"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Privacy</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="privacy" value="public" checked> Public</label>
+                        <label><input type="radio" name="privacy" value="private"> Private</label>
+                    </div>
+                </div>
+                <button type="button" class="auth-submit-btn" onclick="tubeClone.createPlaylist()">
+                    <i class="fas fa-plus"></i>
+                    Create Playlist
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Stream Modal -->
+    <div class="modal" id="liveStreamModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Go Live</h2>
+                <button class="close-btn" onclick="tubeClone.closeLiveStreamModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="livePreview" autoplay muted style="width: 100%; height: 200px; background: #000;"></video>
+                <div class="form-group">
+                    <label for="streamTitle">Stream Title</label>
+                    <input type="text" id="streamTitle" class="input-field" placeholder="Enter stream title">
+                </div>
+                <button type="button" class="auth-submit-btn" onclick="tubeClone.startLiveStream()">
+                    <i class="fas fa-broadcast-tower"></i>
+                    Start Live Stream
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Quality Selector -->
+    <div class="quality-selector" id="qualitySelector" style="display: none;">
+        <button class="quality-btn" id="qualityBtn">
+            <i class="fas fa-cog"></i>
+            <span>Auto</span>
+        </button>
+        <div class="quality-options" id="qualityOptions">
+            <div class="quality-option active" data-quality="Auto">Auto</div>
+            <div class="quality-option" data-quality="1080p">1080p</div>
+            <div class="quality-option" data-quality="720p">720p</div>
+            <div class="quality-option" data-quality="480p">480p</div>
+            <div class="quality-option" data-quality="360p">360p</div>
+        </div>
+    </div>
+
+    <!-- Age Verification Modal -->
+    <div class="age-verification-modal" id="ageVerificationModal">
+        <div class="age-verification-content">
+            <div class="age-verification-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>Age Verification Required</h2>
+            </div>
+            <div class="age-verification-body">
+                <p>This website contains mature content and is intended for users 18 years and older.</p>
+                <p>By clicking "I am 18 or older", you confirm that you meet the age requirement and agree to view this content.</p>
+                <div class="age-verification-buttons">
+                    <button class="age-btn deny" onclick="ageVerification.denyAccess()">
+                        <i class="fas fa-times"></i>
+                        I am under 18
+                    </button>
+                    <button class="age-btn confirm" onclick="ageVerification.confirmAge()">
+                        <i class="fas fa-check"></i>
+                        I am 18 or older
+                    </button>
+                </div>
+            </div>
+            <div class="age-verification-footer">
+                <p><i class="fas fa-shield-alt"></i> Your privacy is protected. We do not store personal information.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<!-- Super AI Chat Assistant removed -->
+</body>
+</html>

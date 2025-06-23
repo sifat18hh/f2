@@ -1,0 +1,6 @@
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Sitemap: https://your-tubeclone.replit.app/sitemap.xml

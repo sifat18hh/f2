@@ -1,0 +1,3317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TubeClone Admin Dashboard - Complete Management System</title>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="admin-styles.css?v=3.0.0" id="adminCSS">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Enhanced JavaScript Loading with Proper Order -->
+    <script>
+        // Global function declarations to prevent errors
+        window.showTab = window.showTab || function() { console.log('showTab loading...'); };
+        window.runSystemCheck = window.runSystemCheck || function() { console.log('runSystemCheck loading...'); };
+        window.optimizeAI = window.optimizeAI || function() { console.log('optimizeAI loading...'); };
+        window.generateReport = window.generateReport || function() { console.log('generateReport loading...'); };
+        window.refreshVideoList = window.refreshVideoList || function() { console.log('refreshVideoList loading...'); };
+        window.enhanceAllVideos = window.enhanceAllVideos || function() { console.log('enhanceAllVideos loading...'); };
+        window.exportVideoData = window.exportVideoData || function() { console.log('exportVideoData loading...'); };
+        window.showVideoAnalytics = window.showVideoAnalytics || function() { console.log('showVideoAnalytics loading...'); };
+        window.moderateContent = window.moderateContent || function() { console.log('moderateContent loading...'); };
+        window.addNewUser = window.addNewUser || function() { console.log('addNewUser loading...'); };
+        window.exportDashboard = window.exportDashboard || function() { console.log('exportDashboard loading...'); };
+        window.refreshDashboard = window.refreshDashboard || function() { console.log('refreshDashboard loading...'); };
+        window.forceFacebookStyleCSS = window.forceFacebookStyleCSS || function() { console.log('forceFacebookStyleCSS loading...'); };
+        window.showNotification = window.showNotification || function() { console.log('showNotification loading...'); };
+        window.updateStats = window.updateStats || function() { console.log('updateStats loading...'); };
+    </script>
+
+    <!-- Critical CSS Preload -->
+    <style id="criticalCSS">
+        * { 
+            margin: 0 !important; 
+            padding: 0 !important; 
+            box-sizing: border-box !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+        }
+        html, body { 
+            background: #f0f2f5 !important;
+            color: #18191a !important;
+            min-height: 100vh !important;
+            background-image: none !important;
+        }
+        .admin-header { background: #ffffff !important; border-bottom: 1px solid #dadde1 !important; }
+        .admin-sidebar { background: #ffffff !important; border-right: 1px solid #dadde1 !important; }
+        .admin-content { background: #f0f2f5 !important; }
+    </style>
+    <style>
+        /* Force apply admin styles */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4facfe 100%) !important;
+            color: #ffffff !important;
+            min-height: 100vh !important;
+        }
+        .admin-header {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(44,62,80,0.95) 50%, rgba(0,0,0,0.9) 100%) !important;
+            padding: 0 30px !important;
+            height: 80px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+        }
+        .admin-sidebar {
+            position: fixed !important;
+            top: 80px !important;
+            left: 0 !important;
+            width: 280px !important;
+            height: calc(100vh - 80px) !important;
+            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(44,62,80,0.95) 50%, rgba(0,0,0,0.95) 100%) !important;
+            padding: 30px 0 !important;
+            overflow-y: auto !important;
+        }
+        .admin-content {
+            margin-left: 280px !important;
+            margin-top: 80px !important;
+            padding: 40px !important;
+            min-height: calc(100vh - 80px) !important;
+        }
+        .admin-nav-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 18px !important;
+            padding: 18px 30px !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            transition: all 0.4s ease !important;
+            border-left: 4px solid transparent !important;
+        }
+        .admin-nav-item:hover {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.4), rgba(41, 128, 185, 0.4)) !important;
+            border-left-color: #3498db !important;
+            transform: translateX(10px) !important;
+        }
+        .admin-nav-item.active {
+            background: linear-gradient(135deg, #3498db, #2980b9) !important;
+            border-left-color: #2980b9 !important;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(255,255,255,0.1)) !important;
+            padding: 35px 30px !important;
+            border-radius: 20px !important;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 25px !important;
+            transition: all 0.4s ease !important;
+            border: 2px solid rgba(255,255,255,0.3) !important;
+            min-height: 140px !important;
+        }
+        .stats-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 30px !important;
+            margin-bottom: 50px !important;
+        }
+        .admin-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 20px 32px !important;
+            border-radius: 15px !important;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            transition: all 0.4s ease !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 12px !important;
+            text-decoration: none !important;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6) !important;
+        }
+        .admin-btn:hover {
+            transform: translateY(-4px) scale(1.02) !important;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.8) !important;
+        }
+        .ai-system-status {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(255,255,255,0.1)) !important;
+            padding: 40px !important;
+            border-radius: 25px !important;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4) !important;
+            margin-bottom: 40px !important;
+            border: 2px solid rgba(255,255,255,0.3) !important;
+        }
+        .ai-status-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: 25px !important;
+        }
+        .admin-section {
+            display: none !important;
+        }
+        .admin-section.active {
+            display: block !important;
+            animation: fadeInUp 0.5s ease-out !important;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1, h2, h3 {
+            color: #ffffff !important;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+        }
+        p, span, div {
+            color: #ffffff !important;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Enhanced Header with Search and Notifications -->
+        <header class="admin-header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1><i class="fas fa-shield-alt"></i> TubeClone Complete Admin</h1>
+                <div class="global-search">
+                    <input type="text" placeholder="Search anything..." id="globalSearch">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="header-btn" onclick="showNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                    <button class="header-btn" onclick="showMessages()">
+                        <i class="fas fa-envelope"></i>
+                        <span class="message-badge">2</span>
+                    </button>
+                    <button class="header-btn" onclick="showTasks()">
+                        <i class="fas fa-tasks"></i>
+                    </button>
+                    <button class="header-btn" onclick="showCalendar()">
+                        <i class="fas fa-calendar"></i>
+                    </button>
+                </div>
+                <div class="ai-status">
+                    <span class="ai-indicator active">🤖 AI Active</span>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar">A</div>
+                    <div class="user-info">
+                        <span class="user-name">Admin</span>
+                        <span class="user-role">Super Admin</span>
+                    </div>
+                    <i class="fas fa-chevron-down" style="margin-left: 8px; transition: transform 0.2s ease;" id="userMenuChevron"></i>
+                    <div class="user-menu-dropdown" id="userMenuDropdown" style="display: none;">
+                        <button type="button" id="userProfileBtn" onclick="showUserProfile()"><i class="fas fa-user"></i> User Profile</button>
+                        <button type="button" id="userSettingsBtn" onclick="showUserSettings()"><i class="fas fa-cog"></i> Settings</button>
+                        <div style="border-top: 1px solid var(--fb-border); margin: 8px 0;"></div>
+                        <button type="button" class="logout-option" id="logoutBtn" onclick="logoutUser()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-main">
+            <!-- Enhanced Sidebar Navigation -->
+            <nav class="admin-sidebar">
+                <!-- Quick Stats in Sidebar -->
+                <div class="sidebar-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-video"></i>
+                        <span>Videos: <strong id="sidebarVideos">3</strong></span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span>Users: <strong id="sidebarUsers">4</strong></span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Earnings: <strong id="sidebarEarnings">$10K</strong></span>
+                    </div>
+                </div>
+
+                <ul class="admin-nav">
+                    <!-- Core Management -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Core Management</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('dashboard')" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="analytics-overview">
+                        <i class="fas fa-chart-line"></i> Analytics Overview
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="quick-actions">
+                        <i class="fas fa-bolt"></i> Quick Actions
+                    </a></li>
+
+                    <!-- Content Management -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Content Management</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('videos')" data-section="videos">
+                        <i class="fas fa-video"></i> Video Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('upload')" data-section="upload">
+                        <i class="fas fa-upload"></i> Advanced Upload
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="content-moderation">
+                        <i class="fas fa-shield-check"></i> Content Moderation
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="categories">
+                        <i class="fas fa-folder-tree"></i> Categories Manager
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="thumbnails">
+                        <i class="fas fa-image"></i> Thumbnail Manager
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="playlists">
+                        <i class="fas fa-list"></i> Playlist Manager
+                    </a></li>
+
+                    <!-- User Management -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">User Management</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('users')" data-section="users">
+                        <i class="fas fa-users"></i> User Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="user-roles">
+                        <i class="fas fa-users-cog"></i> Roles & Permissions
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="user-analytics">
+                        <i class="fas fa-user-chart"></i> User Analytics
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="subscriptions">
+                        <i class="fas fa-crown"></i> Subscriptions
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="user-feedback">
+                        <i class="fas fa-comments"></i> User Feedback
+                    </a></li>
+
+                    <!-- Monetization & Revenue -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Monetization & Revenue</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('earnings')" data-section="earnings">
+                        <i class="fas fa-coins"></i> Earnings Dashboard
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="monetization">
+                        <i class="fas fa-dollar-sign"></i> Monetization Control
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="ads">
+                        <i class="fas fa-ad"></i> Ad Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('google-ads')" data-section="google-ads">
+                        <i class="fab fa-google"></i> Google Ads
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('adsense')" data-section="adsense">
+                        <i class="fab fa-google"></i> Google AdSense
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="payment-gateway">
+                        <i class="fas fa-credit-card"></i> Payment Gateway
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="revenue-analytics">
+                        <i class="fas fa-chart-pie"></i> Revenue Analytics
+                    </a></li>
+
+                    <!-- Marketing & SEO -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Marketing & SEO</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('seo')" data-section="seo">
+                        <i class="fas fa-search"></i> SEO Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="social-media">
+                        <i class="fas fa-share-alt"></i> Social Media
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="email-marketing">
+                        <i class="fas fa-envelope-open"></i> Email Marketing
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="push-notifications">
+                        <i class="fas fa-bell"></i> Push Notifications
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="affiliate-program">
+                        <i class="fas fa-handshake"></i> Affiliate Program
+                    </a></li>
+
+                    <!-- Analytics & Reports -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Analytics & Reports</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('analytics')" data-section="analytics">
+                        <i class="fas fa-chart-bar"></i> Advanced Analytics
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="real-time-analytics">
+                        <i class="fas fa-chart-area"></i> Real-time Analytics
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="reports">
+                        <i class="fas fa-file-alt"></i> Custom Reports
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="data-export">
+                        <i class="fas fa-download"></i> Data Export
+                    </a></li>
+
+                    <!-- AI & Automation -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">AI & Automation</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('ai-system')" data-section="ai-system">
+                        <i class="fas fa-robot"></i> AI System
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="algorithm-management">
+                        <i class="fas fa-brain"></i> Algorithm Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="automation">
+                        <i class="fas fa-cogs"></i> Automation Rules
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="machine-learning">
+                        <i class="fas fa-microchip"></i> Machine Learning
+                    </a></li>
+
+                    <!-- System & Security -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">System & Security</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('system')" data-section="system">
+                        <i class="fas fa-cog"></i> System Settings
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="security">
+                        <i class="fas fa-shield-alt"></i> Security Center
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="backup-restore">
+                        <i class="fas fa-hdd"></i> Backup & Restore
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="monitoring">
+                        <i class="fas fa-eye"></i> System Monitoring
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="logs">
+                        <i class="fas fa-file-code"></i> System Logs
+                    </a></li>
+
+                    <!-- Storage & CDN -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Storage & CDN</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" onclick="window.showTab('storage')" data-section="storage">
+                        <i class="fas fa-cloud"></i> Cloud Storage
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="cdn-management">
+                        <i class="fas fa-globe"></i> CDN Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="file-manager">
+                        <i class="fas fa-folder-open"></i> File Manager
+                    </a></li>
+
+                    <!-- Tools & Utilities -->
+                    <li class="nav-group">
+                        <div class="nav-group-title">Tools & Utilities</div>
+                    </li>
+                    <li><a href="#" class="admin-nav-item" data-section="system-management">
+                        <i class="fas fa-server"></i> System Tools
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="api-management">
+                        <i class="fas fa-code"></i> API Management
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="webhooks">
+                        <i class="fas fa-link"></i> Webhooks
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="integrations">
+                        <i class="fas fa-puzzle-piece"></i> Integrations
+                    </a></li>
+                    <li><a href="#" class="admin-nav-item" data-section="themes">
+                        <i class="fas fa-palette"></i> Theme Manager
+                    </a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="admin-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="admin-section active">
+                    <div class="dashboard-header">
+                        <h2><i class="fas fa-tachometer-alt"></i> Complete Dashboard Overview</h2>
+                        <div class="dashboard-actions">
+                            <button class="admin-btn" id="exportDashboardBtn" type="button" onclick="exportDashboard()">
+                                <i class="fas fa-download"></i> Export Dashboard
+                            </button>
+                            <button class="admin-btn success" id="refreshAllBtn" type="button" onclick="refreshDashboard()">
+                                <i class="fas fa-sync"></i> Refresh All
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Stats Grid with Real-time Updates -->
+                    <div class="stats-grid enhanced">
+                        <div class="stat-card video-stats animate__animated animate__fadeInUp">
+                            <div class="stat-icon">
+                                <i class="fas fa-video"></i>
+                                <span class="status-indicator active" id="videoStatusIndicator"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Videos</h3>
+                                <p id="totalVideos" class="stat-number">3</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">↗ +2 today</span>
+                                    <span class="stat-time">Last 24h</span>
+                                </div>
+                                <div class="stat-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>75% of monthly goal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card user-stats animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                                <span class="status-indicator active" id="userStatusIndicator"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Users</h3>
+                                <p id="totalUsers" class="stat-number">4</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">↗ +1 today</span>
+                                    <span class="stat-time">Active users</span>
+                                </div>
+                                <div class="stat-breakdown">
+                                    <span>Admins: 1</span>
+                                    <span>Users: 3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card views-stats animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                                <span class="status-indicator active" id="viewsStatusIndicator"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Views</h3>
+                                <p id="totalViews" class="stat-number">950K</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">↗ +5.2K today</span>
+                                    <span class="stat-time">All time</span>
+                                </div>
+                                <div class="views-chart">
+                                    <canvas id="viewsSparkline" width="100" height="40"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card earnings-stats animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                            <div class="stat-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="status-indicator active" id="earningsStatusIndicator"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Earnings</h3>
+                                <p id="totalEarnings" class="stat-number">$10,000</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">↗ +$125 today</span>
+                                    <span class="stat-time">Available balance</span>
+                                </div>
+                                <div class="earnings-breakdown">
+                                    <span>Ads: $6,500</span>
+                                    <span>Subs: $3,500</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Stats -->
+                        <div class="stat-card engagement-stats animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                                <span class="status-indicator active"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Engagement Rate</h3>
+                                <p class="stat-number">92.5%</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">↗ +2.1% this week</span>
+                                    <span class="stat-time">Avg. engagement</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card performance-stats animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+                            <div class="stat-icon">
+                                <i class="fas fa-rocket"></i>
+                                <span class="status-indicator excellent"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Site Performance</h3>
+                                <p class="stat-number">98%</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend stable">Excellent</span>
+                                    <span class="stat-time">PageSpeed score</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card storage-stats animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                            <div class="stat-icon">
+                                <i class="fas fa-cloud"></i>
+                                <span class="status-indicator warning"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Storage Used</h3>
+                                <p class="stat-number">45GB</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend neutral">55GB free</span>
+                                    <span class="stat-time">of 100GB</span>
+                                </div>
+                                <div class="stat-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill warning" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card security-stats animate__animated animate__fadeInUp" style="animation-delay: 0.7s">
+                            <div class="stat-icon">
+                                <i class="fas fa-shield-alt"></i>
+                                <span class="status-indicator excellent"></span>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Security Score</h3>
+                                <p class="stat-number">100%</p>
+                                <div class="stat-details">
+                                    <span class="stat-trend positive">Excellent</span>
+                                    <span class="stat-time">All checks passed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Activity Feed -->
+                    <div class="dashboard-grid">
+                        <div class="dashboard-widget activity-feed">
+                            <h3><i class="fas fa-stream"></i> Live Activity Feed</h3>
+                            <div class="activity-list" id="activityFeed">
+                                <div class="activity-item">
+                                    <div class="activity-icon video">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>New video uploaded</strong> by User123</p>
+                                        <span class="activity-time">2 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon user">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>New user registered</strong> - johnsmith@email.com</p>
+                                        <span class="activity-time">5 minutes ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon earning">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p><strong>Payment received</strong> $25.00 from ads</p>
+                                        <span class="activity-time">12 minutes ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-widget system-health">
+                            <h3><i class="fas fa-heartbeat"></i> System Health Monitor</h3>
+                            <div class="health-metrics">
+                                <div class="health-metric">
+                                    <span class="metric-label">CPU Usage</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span class="metric-value">25%</span>
+                                </div>
+                                <div class="health-metric">
+                                    <span class="metric-label">Memory Usage</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="metric-value">60%</span>
+                                </div>
+                                <div class="health-metric">
+                                    <span class="metric-label">Database Load</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" style="width: 15%"></div>
+                                    </div>
+                                    <span class="metric-value">15%</span>
+                                </div>
+                                <div class="health-metric">
+                                    <span class="metric-label">Network I/O</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" style="width: 35%"></div>
+                                    </div>
+                                    <span class="metric-value">35%</span>
+                                </div>
+                                </div>
+                        </div>
+
+                        <div class="dashboard-widget recent-uploads">
+                            <h3><i class="fas fa-clock"></i> Recent Uploads</h3>
+                            <div class="upload-list">
+                                <div class="upload-item">
+                                    <div class="upload-thumbnail">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div class="upload-info">
+                                        <h4>Sample Video 1</h4>
+                                        <p>Uploaded 2 hours ago</p>
+                                        <span class="upload-status processing">Processing</span>
+                                    </div>
+                                </div>
+                                <div class="upload-item">
+                                    <div class="upload-thumbnail">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div class="upload-info">
+                                        <h4>Sample Video 2</h4>
+                                        <p>Uploaded 5 hours ago</p>
+                                        <span class="upload-status completed">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-widget quick-stats">
+                            <h3><i class="fas fa-chart-pie"></i> Quick Analytics</h3>
+                            <div class="quick-stats-grid">
+                                <div class="quick-stat">
+                                    <i class="fas fa-play"></i>
+                                    <span class="stat-value">1.2K</span>
+                                    <span class="stat-label">Plays Today</span>
+                                </div>
+                                <div class="quick-stat">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span class="stat-value">95%</span>
+                                    <span class="stat-label">Like Ratio</span>
+                                </div>
+                                <div class="quick-stat">
+                                    <i class="fas fa-share"></i>
+                                    <span class="stat-value">342</span>
+                                    <span class="stat-label">Shares</span>
+                                </div>
+                                <div class="quick-stat">
+                                    <i class="fas fa-comment"></i>
+                                    <span class="stat-value">89</span>
+                                    <span class="stat-label">Comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced AI System Status -->
+                    <div class="ai-system-status enhanced">
+                                                <h3><i class="fas fa-robot"></i> Super Advanced AI System</h3>
+                        <div class="ai-status-grid">
+                            <div class="ai-status-card">
+                                <div class="ai-card-header">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>Neural Network</h4>
+                                </div>
+                                <div class="ai-card-content">
+                                    <div class="status-indicator excellent">100% Active</div>
+                                    <div class="ai-metrics">
+                                        <span>Accuracy: 98.5%</span>
+                                        <span>Processing: 1.2ms</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ai-status-card">
+                                <div class="ai-card-header">
+                                    <i class="fas fa-shield-check"></i>
+                                    <h4>Auto-Fix Engine</h4>
+                                </div>
+                                <div class="ai-card-content">
+                                    <div class="status-indicator active">✅ Active</div>
+                                    <div class="ai-metrics">
+                                        <span>Fixed Today: 15</span>
+                                        <span>Success Rate: 100%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ai-status-card">
+                                <div class="ai-card-header">
+                                    <i class="fas fa-search"></i>
+                                    <h4>Error Detection</h4>
+                                </div>
+                                <div class="ai-card-content">
+                                    <div class="status-indicator active">🔍 Monitoring</div>
+                                    <div class="ai-metrics">
+                                        <span>Scans/min: 60</span>
+                                        <span>Threats: 0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ai-status-card">
+                                <div class="ai-card-header">
+                                    <i class="fas fa-rocket"></i>
+                                    <h4>Performance AI</h4>
+                                </div>
+                                <div class="ai-card-content">
+                                    <div class="status-indicator excellent">Excellent</div>
+                                    <div class="ai-metrics">
+                                        <span>Optimization: 98%</span>
+                                        <span>Speed Boost: +45%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions with Categories -->
+                    <div class="quick-actions enhanced">
+                        <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                        <div class="action-categories">
+                            <div class="action-category">
+                                <h4>Content Management</h4>
+                                <div class="action-buttons">
+                                    <button onclick="showTab('upload')" class="admin-btn">
+                                        <i class="fas fa-upload"></i> Upload Video
+                                    </button>
+                                    <button onclick="showTab('videos')" class="admin-btn">
+                                        <i class="fas fa-video"></i> Manage Videos
+                                    </button>
+                                    <button onclick="moderateContent()" class="admin-btn">
+                                        <i class="fas fa-shield-check"></i> Moderate Content
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="action-category">
+                                <h4>User Management</h4>
+                                <div class="action-buttons">
+                                    <button onclick="showTab('users')" class="admin-btn">
+                                        <i class="fas fa-users"></i> Manage Users
+                                    </button>
+                                    <button onclick="addNewUser()" class="admin-btn">
+                                        <i class="fas fa-user-plus"></i> Add User
+                                    </button>
+                                    <button onclick="showTab('user-analytics')" class="admin-btn">
+                                        <i class="fas fa-chart-bar"></i> User Analytics
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="action-category">
+                                <h4>System & AI</h4>
+                                <div class="action-buttons">
+                                    <button class="admin-btn" onclick="window.runSystemCheck()">
+                                        <i class="fas fa-heartbeat"></i> System Check
+                                    </button>
+                                    <button class="admin-btn info" onclick="optimizeAI()">
+                                        <i class="fas fa-robot"></i> Optimize AI
+                                    </button>
+                                    <button class="admin-btn warning" onclick="generateReport()">
+                                        <i class="fas fa-file-alt"></i> Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- All other sections would continue here... -->
+                <!-- For brevity, I'll add placeholders for other sections -->
+
+                <!-- Videos Section -->
+                <section id="videos" class="admin-section">
+                    <h2><i class="fas fa-video"></i> Advanced Video Management</h2>
+
+                    <div class="section-controls">
+                        <button class="admin-btn" onclick="refreshVideoList()"><i class="fas fa-sync"></i> Refresh Videos</button>
+                        <button class="admin-btn success" onclick="enhanceAllVideos()"><i class="fas fa-magic"></i> AI Enhance All</button>
+                        <button class="admin-btn warning" onclick="exportVideoData()"><i class="fas fa-download"></i> Export Data</button>
+                        <button class="admin-btn info" onclick="showVideoAnalytics()"><i class="fas fa-chart-bar"></i> Analytics</button>
+                    </div>
+
+                    <div class="video-management-grid">
+                        <div class="video-stats-overview">
+                            <h3><i class="fas fa-chart-pie"></i> Video Statistics</h3>
+                            <div class="stats-cards">
+                                <div class="stat-mini-card">
+                                    <i class="fas fa-video"></i>
+                                    <span class="stat-value" id="totalVideosCount">3</span>
+                                    <span class="stat-label">Total Videos</span>
+                                </div>
+                                <div class="stat-mini-card">
+                                    <i class="fas fa-eye"></i>
+                                    <span class="stat-value" id="totalVideoViews">950K</span>
+                                    <span class="stat-label">Total Views</span>
+                                </div>
+                                <div class="stat-mini-card">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    <span class="stat-value" id="totalVideoLikes">15K</span>
+                                    <span class="stat-label">Total Likes</span>
+                                </div>
+                                <div class="stat-mini-card">
+                                    <i class="fas fa-share"></i>
+                                    <span class="stat-value" id="totalVideoShares">2.5K</span>
+                                    <span class="stat-label">Total Shares</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="video-filters">
+                            <h3><i class="fas fa-filter"></i> Filter & Search</h3>
+                            <div class="filter-controls">
+                                <input type="text" id="videoSearchInput" placeholder="Search videos..." class="filter-input">
+                                <select id="videoStatusFilter" class="filter-select">
+                                    <option value="">All Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="blocked">Blocked</option>
+                                </select>
+                                <select id="videoCategoryFilter" class="filter-select">
+                                    <option value="">All Categories</option>
+                                    <option value="music">Music</option>
+                                    <option value="education">Education</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="sports">Sports</option>
+                                    <option value="news">News</option>
+                                </select>
+                                <select id="videoDateFilter" class="filter-select">
+                                    <option value="">All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bulk-actions">
+                            <h3><i class="fas fa-tasks"></i> Bulk Actions</h3>
+                            <div class="bulk-controls">
+                                <button class="admin-btn" onclick="selectAllVideos()"><i class="fas fa-check-square"></i> Select All</button>
+                                <button class="admin-btn warning" onclick="bulkEditVideos()"><i class="fas fa-edit"></i> Bulk Edit</button>
+                                <button class="admin-btn success" onclick="bulkApproveVideos()"><i class="fas fa-check"></i> Approve Selected</button>
+                                <button class="admin-btn danger" onclick="bulkDeleteVideos()"><i class="fas fa-trash"></i> Delete Selected</button>
+                                <button class="admin-btn info" onclick="bulkMoveToCategory()"><i class="fas fa-folder"></i> Move to Category</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" id="selectAllCheckbox"></th>
+                                    <th>ID</th>
+                                    <th>Thumbnail</th>
+                                    <th>Title</th>
+                                    <th>Uploader</th>
+                                    <th>Category</th>
+                                    <th>Views</th>
+                                    <th>Likes</th>
+                                    <th>Duration</th>
+                                    <th>Status</th>
+                                    <th>Upload Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="videosTableBody">
+                                <tr>
+                                    <td colspan="12" style="text-align: center; padding: 20px;">Loading videos...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="video-moderation">
+                        <h3><i class="fas fa-shield-check"></i> Content Moderation</h3>
+                        <div class="moderation-controls">
+                            <button class="admin-btn warning" onclick="scanInappropriateContent()"><i class="fas fa-search"></i> Scan Inappropriate Content</button>
+                            <button class="admin-btn info" onclick="runAIContentAnalysis()"><i class="fas fa-brain"></i> AI Content Analysis</button>
+                            <button class="admin-btn success" onclick="autoModerationSettings()"><i class="fas fa-cog"></i> Auto-Moderation Settings</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upload Section - Enhanced -->
+                <section id="upload" class="admin-section">
+                    <h2><i class="fas fa-upload"></i> Advanced Video Upload System</h2>
+
+                    <div class="upload-tabs">
+                        <button class="tab-btn active" onclick="switchUploadTab('single')">Single Upload</button>
+                        <button class="tab-btn" onclick="switchUploadTab('bulk')">Bulk Upload</button>
+                        <button class="tab-btn" onclick="switchUploadTab('url')">URL Import</button>
+                        <button class="tab-btn" onclick="switchUploadTab('live')">Live Stream</button>
+                        <button class="tab-btn" onclick="switchUploadTab('scheduled')">Scheduled Upload</button>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    Video Title * 
+                                                    0/100
+
+
+
+
+
+
+
+
+
+
+                                                    Description 
+                                                    0/5000
+
+
+
+
+
+
+
+
+
+
+
+                                                    Tags & Hashtags
+
+
+
+                                                        Popular tags: 
+                                                        gaming
+
+                                                        tutorial
+
+                                                        entertainment
+
+
+
+
+                                                        Auto-generate Tags
+
+
+
+
+
+                                                    Category *
+
+
+
+                                                        Select Category
+
+                                                        🎵 Music
+
+                                                        🎮 Gaming
+
+                                                        📚 Education
+
+                                                        🎭 Entertainment
+
+                                                        ⚽ Sports
+
+                                                        💻 Technology
+
+                                                        😂 Comedy
+
+                                                        📰 News & Politics
+
+                                                        🌟 Lifestyle
+
+                                                        ✈️ Travel & Events
+
+                                                        🍔 Food & Cooking
+
+                                                        💄 Beauty & Fashion
+
+
+
+
+
+                                                    Language
+
+
+
+                                                        English
+
+                                                        বাংলা
+
+                                                        हिन्दी
+
+                                                        Español
+
+                                                        Français
+
+                                                        Deutsch
+
+                                                        العربية
+
+                                                        日本語
+
+                                                        한국어
+
+                                                        中文
+
+
+
+
+
+
+
+
+
+                                                Privacy & Visibility
+
+
+
+
+
+
+
+
+                                                                        Public
+                                                                        Anyone can search for and view
+
+
+
+
+
+
+
+
+                                                                        Unlisted
+                                                                        Anyone with the link can view
+
+
+
+
+
+
+
+
+                                                                        Private
+                                                                        Only you can view
+
+
+
+
+
+
+
+
+                                                                        Scheduled
+                                                                        Publish at specific time
+
+
+
+
+
+
+
+
+
+
+                                                        Publish Date
+
+
+                                                        Publish Time
+
+
+
+
+
+
+
+
+
+                                                Monetization Settings
+
+
+
+
+                                                        Enable monetization for this video
+
+
+                                                        Allow ads on this video
+
+
+                                                        Open for brand sponsorships
+
+
+                                                        Enable Super Thanks
+
+
+                                                        Members-only content
+
+
+
+
+
+
+                                                        Membership Price ($/month)
+
+
+
+
+
+
+
+
+
+                                                Advanced Settings
+
+
+
+
+
+                                                            Allow comments
+
+
+                                                            Allow likes/dislikes
+
+
+                                                            Allow sharing
+
+
+                                                            Allow embedding
+
+
+
+
+                                                            Notify subscribers
+
+
+                                                            Add to playlist
+
+
+                                                            Auto-generate subtitles
+
+
+                                                            Process in HD quality
+
+
+
+
+
+
+
+                                                        Select Playlist
+
+                                                        Trending Videos
+
+                                                        Educational Content
+
+                                                        Entertainment
+
+
+                                                        Create New Playlist
+
+
+
+
+
+
+
+
+
+                                                SEO Optimization
+
+
+
+
+                                                        SEO Title (Optional)
+
+
+
+
+                                                        Meta Description
+
+
+
+
+                                                        Focus Keywords
+
+
+
+
+
+
+                                                        SEO Analysis
+
+
+                                                        Auto-optimize SEO
+
+
+
+
+
+
+
+
+
+
+
+                                                        Upload & Publish
+
+
+                                                        Save as Draft
+
+
+
+
+
+
+                                                        Preview
+
+
+                                                        Schedule
+
+
+                                                        Bulk Settings
+
+
+                                                        Clear Form
+
+
+
+
+
+
+
+
+
+
+                    <!-- Bulk Upload Tab -->
+                    <div id="bulk-upload" class="upload-tab">
+                        <div class="bulk-upload-section">
+                            <h3> Bulk Video Upload</h3>
+
+                                Drop multiple videos here or click to browse
+                                Select multiple video files (Max: 50 files, 15GB each)
+
+
+
+
+
+                                    Selected Files:
+
+
+
+
+
+
+
+                                        Default Category:
+
+                                            Auto-detect
+                                            Music
+                                            Education
+                                            Entertainment
+
+
+
+                                        Default Privacy:
+
+                                            Public
+                                            Unlisted
+                                            Private
+
+
+
+                                        Default Tags:
+
+
+
+
+
+
+                                    Start Bulk Upload
+                                    Clear List
+
+
+
+                    </div>
+
+                    <!-- URL Import Tab -->
+                    <div id="url-upload" class="upload-tab">
+
+                            <h3> Import from URL</h3>
+
+
+                                    YouTube
+                                    Vimeo
+                                    Dailymotion
+                                    Direct Video URL
+
+
+
+
+                                Video URL:
+
+                                    Preview
+
+
+
+
+
+                                    Preview:
+
+
+
+
+
+
+                                    Import Video
+
+
+
+                    </div>
+
+                    <!-- Live Stream Tab -->
+                    <div id="live-upload" class="upload-tab">
+
+                            <h3> Live Streaming</h3>
+
+
+
+                                        Stream Title:
+
+
+
+                                        Stream Description:
+
+
+
+                                        Stream Quality:
+
+                                            720p HD
+                                            1080p Full HD
+                                            1440p 2K
+                                            2160p 4K
+
+
+
+
+
+
+
+
+
+
+                                                    Generate New Key
+
+
+
+
+
+
+
+
+                                        Start Live Stream
+                                        Stop Stream
+                                        Test Connection
+
+
+
+
+                    </div>
+
+                    <!-- Scheduled Upload Tab -->
+                    <div id="scheduled-upload" class="upload-tab">
+
+                            <h3> Scheduled Uploads</h3>
+
+
+                                    Scheduled Videos:
+
+                                        No scheduled videos
+
+
+
+
+
+                                        Select Video File:
+
+
+
+                                        Schedule Date & Time:
+
+
+
+                                        Repeat Schedule:
+
+                                            No Repeat
+                                            Daily
+                                            Weekly
+                                            Monthly
+
+
+
+                                        Schedule Upload
+
+
+
+
+                    </div>
+
+                    <!-- Upload Progress -->
+
+
+
+
+
+                                Upload Progress
+                                Preparing...
+
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                Total Earnings
+                                $10,125.50
+                                +12.5% this month
+
+
+                                Available Balance
+                                $8,750.25
+                                Ready for withdrawal
+
+
+                                Pending Earnings
+                                $1,375.25
+                                Processing...
+
+
+                                This Month
+                                $2,450.75
+                                +25% vs last month
+
+
+
+
+
+
+
+                                 Earnings Analytics
+
+
+
+
+                                        Last 7 Days
+                                        Last 30 Days
+                                        Last 90 Days
+                                        This Year
+
+
+                                        Total Earnings
+                                        Ad Revenue
+                                        Subscriptions
+                                        Donations
+                                        Merchandise
+
+
+
+
+
+
+
+
+
+
+                                 Revenue Sources
+
+
+
+
+
+
+                                            Advertisement Revenue
+                                            $6,500.00
+                                            64.3%
+
+
+                                            +15.2%
+
+
+
+
+
+                                            Premium Subscriptions
+                                            $2,800.00
+                                            27.6%
+
+
+                                            +8.7%
+
+
+
+
+
+                                            Donations & Tips
+                                            $525.50
+                                            5.2%
+
+
+                                            +22.1%
+
+
+
+
+
+                                            Merchandise Sales
+                                            $300.00
+                                            3.0%
+
+
+                                            +5.5%
+
+
+
+
+
+
+
+
+
+
+                                 Transaction History
+
+
+
+
+
+
+                                            All Types
+                                            Earnings
+                                            Withdrawals
+                                            Refunds
+                                            Bonuses
+
+
+                                            All Status
+                                            Completed
+                                            Pending
+                                            Failed
+
+
+
+
+
+
+
+
+
+                                            Transaction ID
+                                            Date
+                                            Type
+                                            Description
+                                            Amount
+                                            Status
+                                            Method
+                                            Actions
+
+
+                                            #TXN001
+                                            2024-01-15
+                                             Earning
+                                            Ad Revenue - January
+                                            +$2,500.00
+                                             Completed
+                                            Automatic
+
+                                                View
+
+
+
+
+
+
+
+
+
+
+
+                                 Withdrawal Center
+
+
+
+
+
+
+                                            Bank Transfer
+                                            Direct transfer to your bank account
+                                            Processing time: 2-3 business days
+
+
+                                            Withdraw
+
+
+
+
+
+                                            PayPal
+                                            Instant transfer to PayPal account
+                                            Processing time: Instant
+
+
+                                            Withdraw
+
+
+
+
+
+                                            bKash (Bangladesh)
+                                            Mobile financial service
+                                            Processing time: Instant
+
+
+                                            Withdraw
+
+
+
+
+
+                                            Cryptocurrency
+                                            Bitcoin, Ethereum, USDT
+                                            Processing time: 1-2 hours
+
+
+                                            Withdraw
+
+
+
+
+
+
+
+                                    Withdrawal Limits & Fees:
+
+
+                                            Minimum withdrawal: $50.00
+
+
+                                            Maximum per day: $10,000.00
+
+
+                                            Bank transfer fee: $2.50
+
+
+                                            PayPal fee: 2.9% + $0.30
+
+
+                                            bKash fee: 1.5%
+
+
+                                            Crypto fee: Network fee only
+
+
+
+
+
+
+
+
+
+
+                                 AI Earnings Analytics
+
+
+
+
+
+                                            Growth Prediction
+                                            Based on current trends, you're projected to earn next month
+
+
+
+
+                                            Optimization Tip
+                                            Upload videos on Thursdays to increase ad revenue by up to 23%
+
+
+
+
+                                            Best Performing Content
+                                            Educational content generates 35% more revenue than entertainment
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 Campaign Overview
+
+
+
+
+                                        Active Campaigns
+                                        12
+                                        Running campaigns
+
+
+                                        Total Impressions
+                                        2.5M
+                                        This month
+
+
+                                        Total Clicks
+                                        125K
+                                        CTR: 5.2%
+
+
+                                        Ad Spend
+                                        $0.00
+                                        FREE Forever
+
+
+
+
+
+
+
+
+
+                                 Create FREE Campaign
+
+
+
+
+                                        Search Campaigns
+                                        Appear in Google search results
+                                        Create
+
+
+                                        Display Campaigns
+                                        Banner ads across websites
+                                        Create
+
+
+                                        Video Campaigns
+                                        YouTube video promotions
+                                        Create
+
+
+                                        Shopping Campaigns
+                                        Product listings in search
+                                        Create
+
+
+
+
+
+
+                                    Quick Campaign Setup:
+
+
+                                            Campaign Name:
+
+
+
+                                            Target Keywords:
+
+
+
+                                            Target Video/Page:
+
+                                                Select video to promote
+
+
+
+                                            Campaign Goal:
+
+                                                Drive website traffic
+                                                Increase video views
+                                                Get more subscribers
+                                                Increase sales
+
+
+
+                                            Target Audience:
+
+                                                All audiences
+                                                Specific demographics
+                                                Interest-based
+                                                Behavioral targeting
+
+
+
+                                            Create FREE Campaign
+
+
+
+
+
+
+
+
+
+
+                                 Campaign Manager
+
+
+
+
+                                        Auto-Create Campaigns for All Videos
+                                        Optimize All Campaigns
+                                        Pause All
+                                        Export Data
+
+
+
+
+
+
+
+
+                                            Campaign Name
+                                            Type
+                                            Status
+                                            Impressions
+                                            Clicks
+                                            CTR
+                                            Cost
+                                            Performance
+                                            Actions
+
+
+                                            Video Promotion - Sample
+                                            Search
+                                             Active
+                                            125,450
+                                            6,525
+                                            5.2%
+                                            FREE
+                                             Excellent
+
+                                                Edit
+                                                Pause
+
+
+
+
+
+
+
+
+
+
+
+                                 Active Campaign Performance
+
+
+
+
+
+                                            Best Performing Keywords
+
+                                                "video sharing platform" - 8.5% CTR
+                                                "watch videos online" - 7.2% CTR
+                                                "free video hosting" - 6.8% CTR
+                                                "tube clone" - 6.1% CTR
+
+
+
+                                            Top Converting Demographics
+
+                                                Age 25-34: 12.3% conversion
+                                                Age 18-24: 9.8% conversion
+                                                Tech enthusiasts: 15.2% conversion
+                                                Content creators: 18.5% conversion
+
+
+
+                                            Geographic Performance
+
+                                                United States: 2.1M impressions
+                                                United Kingdom: 450K impressions
+                                                Canada: 320K impressions
+                                                Australia: 180K impressions
+
+
+
+
+
+
+
+
+
+
+
+                                 Advanced Analytics
+
+
+
+
+                                        Campaign Performance Trends
+
+
+
+
+                                            AI-Powered Insights
+
+
+
+
+                                                        Consider increasing bids for "video platform" keyword - 23% conversion rate
+
+
+
+
+
+                                                        Campaign performance improved 35% after targeting mobile users
+
+
+
+
+
+                                                        Best time to run ads: 2PM-6PM (18% higher CTR)
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Video Boosting for Google First Page
+
+
+
+
+                                        How Video Boosting Works:
+
+
+                                                Automatically promotes your videos to Google's first page
+
+
+                                                Uses advanced SEO and Google Ads integration
+
+
+                                                100% FREE with our premium system
+
+
+                                                Results visible within 24-48 hours
+
+
+                                                Increases organic traffic by 300-500%
+
+
+
+
+
+
+                                            Boost ALL Videos to Google First Page (FREE)
+
+
+                                            Selective Video Boosting
+
+
+                                            Schedule Automatic Boosting
+
+
+
+
+
+                                    Recent Boost Results:
+
+
+
+
+                                                "Sample Video 1" - Now ranking #2 on Google for "video platform"
+                                                Boosted 2 hours ago
+
+
+                                                "Tutorial Video" - 450% increase in organic traffic
+                                                Boosted yesterday
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 AdSense Performance
+
+
+
+
+                                        Today's Earnings
+                                        $125.50
+                                        +15.2% vs yesterday
+
+
+                                        This Week
+                                        $875.25
+                                        +8.7% vs last week
+
+
+                                        This Month
+                                        $3,450.75
+                                        +22.1% vs last month
+
+
+                                        Total Revenue
+                                        $15,250.00
+                                        All time earnings
+
+
+
+
+
+
+
+
+
+                                 AdSense Controls
+
+
+
+
+                                        Enable AdSense Globally
+
+
+                                        AI Optimize Ad Placements
+
+
+                                        Manage Ad Blocking
+
+
+                                        Generate Report
+
+
+
+
+                                    Ad Placement Settings:
+
+
+
+                                                Header Banner Ads
+                                                Top of page - High visibility
+
+
+
+
+                                                Sidebar Ads
+                                                Right sidebar - Persistent
+
+
+
+
+                                                Video Pre-roll Ads
+                                                Before video starts - High engagement
+
+
+
+
+                                                Video Mid-roll Ads
+                                                During video - Long content only
+
+
+
+
+                                                In-content Ads
+                                                Between content sections
+
+
+
+
+                                                Footer Ads
+                                                Bottom of page - Lower engagement
+
+
+
+
+                                        Save Settings
+
+
+
+
+
+
+
+
+
+                                 Ad Performance Analytics
+
+
+
+
+                                        Last 24 Hours
+                                        Last 7 Days
+                                        Last 30 Days
+                                        Last 90 Days
+
+
+                                        Revenue
+                                        Impressions
+                                        Clicks
+                                        Click-through Rate
+                                        CPM
+
+
+
+
+
+
+
+
+
+
+                                 Ad Unit Manager
+
+
+
+
+                                        Create New Ad Unit
+
+
+                                        Test Ad Units
+
+
+                                        Auto-Optimize
+
+
+
+
+
+
+
+                                            Ad Unit Name
+                                            Type
+                                            Size
+                                            Status
+                                            Impressions
+                                            CTR
+                                            Revenue
+                                            Actions
+
+
+                                            Header Banner
+                                            Display
+                                            728x90
+                                             Active
+                                            125,450
+                                            2.1%
+                                            $350.25
+
+                                                Edit
+                                                Pause
+
+
+
+                                            Sidebar Rectangle
+                                            Display
+                                            300x250
+                                             Active
+                                            89,230
+                                            1.8%
+                                            $275.50
+
+                                                Edit
+                                                Pause
+
+
+
+
+
+
+
+
+
+
+
+                                 AI-Powered Optimization
+
+
+
+
+
+                                            Revenue Optimization
+                                            Moving the sidebar ad 50px down could increase revenue by 12%
+                                            Apply
+
+
+
+
+                                            Audience Targeting
+                                            Enable interest-based ads for 23% better performance
+                                            Apply
+
+
+
+
+                                            Timing Optimization
+                                            Show more ads during 2PM-6PM for 18% higher CTR
+                                            Apply
+
+
+
+
+
+
+
+
+
+
+                                 Advanced Settings
+
+
+
+
+                                        Revenue Settings
+
+
+                                                Auto-optimize for revenue
+
+
+                                                Enable A/B testing
+
+
+                                                Dynamic ad sizes
+
+
+
+
+
+                                        User Experience
+
+
+                                                Limit ad frequency
+
+
+                                                Respect ad blockers
+
+
+                                                Mobile optimization
+
+
+
+
+
+                                        Content Filtering
+
+
+                                                Block inappropriate ads
+
+
+                                                Family-friendly only
+
+
+                                                Brand safety controls
+
+
+
+
+
+
+
+
+                                    Save All Settings
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 User Statistics
+
+
+
+
+                                        Total Users
+                                        1,250
+                                        +15 today
+
+
+                                        Active Users
+                                        1,125
+                                        90% active rate
+
+
+                                        Premium Users
+                                        285
+                                        22.8% conversion
+
+
+                                        New Today
+                                        15
+                                        +25% vs yesterday
+
+
+
+
+
+
+
+
+
+                                 User Management Tools
+
+
+
+
+                                        Add New User
+
+
+                                        Bulk Actions
+
+
+                                        Export Users
+
+
+                                        Import Users
+
+
+                                        Send Bulk Email
+
+
+
+
+                                    Filter & Search Users:
+
+
+
+
+                                                All Status
+                                                Active
+                                                Inactive
+                                                Suspended
+                                                Banned
+
+
+
+
+                                                All Roles
+                                                Admin
+                                                Moderator
+                                                Premium User
+                                                Regular User
+
+
+
+
+                                                All Time
+                                                Today
+                                                This Week
+                                                This Month
+                                                This Year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                Avatar
+                                                Name
+                                                Email
+                                                Username
+                                                Role
+                                                Status
+                                                Join Date
+                                                Last Login
+                                                Videos
+                                                Subscribers
+                                                Actions
+
+
+                                                Loading users...
+
+
+
+
+
+
+
+
+
+
+
+                                 User Analytics
+
+
+
+
+                                        User Growth Trend
+
+
+
+
+                                            User Activity Breakdown
+
+
+                                                    Daily Active Users
+                                                    850
+                                                    +5.2%
+
+
+                                                    Weekly Active Users
+                                                    1,125
+                                                    +8.7%
+
+
+                                                    Monthly Active Users
+                                                    1,200
+                                                    +12.3%
+
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 Performance Overview
+
+
+
+
+                                        Total Page Views
+                                        2.5M
+                                        +15.2%
+
+
+                                        Unique Visitors
+                                        185K
+                                        +8.7%
+
+
+                                        Avg. Session Duration
+                                        8m 45s
+                                        +12.3%
+
+
+                                        Bounce Rate
+                                        25.8%
+                                        -5.2%
+
+
+
+
+
+
+
+
+
+                                 Traffic Analytics
+
+
+
+
+                                        Today
+                                        Yesterday
+                                        Last 7 Days
+                                        Last 30 Days
+                                        Last 90 Days
+                                        This Year
+
+
+                                        Page Views
+                                        Sessions
+                                        Users
+                                        Bounce Rate
+                                        Session Duration
+
+
+                                        Refresh
+
+
+
+
+
+
+
+
+
+
+                                 Traffic Sources
+
+
+
+
+                                        Traffic by Source
+
+
+
+
+                                            Top Traffic Sources
+
+
+                                                    Google Search
+                                                    45.2%
+                                                    1.13M visitors
+
+
+                                                    Direct Traffic
+                                                    28.7%
+                                                    717K visitors
+
+
+                                                    Social Media
+                                                    15.3%
+                                                    382K visitors
+
+
+                                                    YouTube
+                                                    6.8%
+                                                    170K visitors
+
+
+                                                    Other
+                                                    4.0%
+                                                    100K visitors
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Geographic Analytics
+
+
+
+
+                                        Visitors by Country
+
+
+                                                Interactive World Map
+
+
+
+
+
+                                            Top Countries
+
+
+
+                                                    United States
+                                                    35.2%
+                                                    880K
+
+
+
+                                                    Bangladesh
+                                                    18.7%
+                                                    467K
+
+
+
+                                                    India
+                                                    12.5%
+                                                    312K
+
+
+
+                                                    United Kingdom
+                                                    8.3%
+                                                    207K
+
+
+
+                                                    Canada
+                                                    6.2%
+                                                    155K
+
+
+
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 Complete System Settings
+
+
+
+                                    General
+                                    Security
+                                    Performance
+                                    Email
+                                    Storage
+                                    API
+                                    Maintenance
+
+
+
+
+
+
+
+                                             General Site Settings
+
+
+
+                                                Site Information
+
+                                                    Site Name:
+
+
+
+                                                    Site Description:
+
+
+
+                                                    Site URL:
+
+
+
+                                                    Admin Email:
+
+
+
+                                                    Default Language:
+
+                                                        English
+                                                        বাংলা
+                                                        Hindi
+                                                        Arabic
+
+
+
+                                                    Timezone:
+
+                                                        UTC
+                                                        Asia/Dhaka
+                                                        America/New_York
+                                                        Europe/London
+
+
+
+
+
+                                                Upload Settings
+
+                                                    Max File Size (GB):
+
+
+
+                                                    Allowed Video Formats:
+
+
+                                                            MP4
+
+
+                                                            AVI
+
+
+                                                            MOV
+
+
+                                                            WMV
+
+
+                                                            FLV
+
+
+                                                            MKV
+
+
+
+
+                                                    Auto-generate thumbnails
+
+
+                                                    Enable video compression
+
+
+                                                    Generate multiple quality versions
+
+
+
+
+                                                User Settings
+
+                                                    Allow user registration
+
+
+                                                    Require email verification
+
+
+                                                    Allow profile pictures
+
+
+                                                    Allow user comments
+
+
+                                                    Allow user uploads
+
+
+                                                    Default User Role:
+
+                                                        Regular User
+                                                        Content Creator
+                                                        Premium User
+
+
+
+
+
+
+
+
+                                             Security & Privacy Settings
+
+
+
+                                                Authentication
+
+                                                    Enable Two-Factor Authentication
+
+
+                                                    Enable Social Login
+
+
+                                                    Strong password requirements
+
+
+                                                    Session Timeout (minutes):
+
+
+
+                                                    Max Login Attempts:
+
+
+
+
+
+                                                Content Security
+
+                                                    Enable content moderation
+
+
+                                                    Auto-scan for inappropriate content
+
+
+                                                    Copyright detection
+
+
+                                                    Spam filter
+
+
+                                                    API rate limiting
+
+
+
+
+                                                Privacy Settings
+
+                                                    GDPR compliance
+
+
+                                                    Cookie consent banner
+
+
+                                                    Data encryption at rest
+
+
+                                                    Allow anonymous viewing
+
+
+
+
+
+
+
+                                             Performance Optimization
+
+
+
+                                                Caching
+
+                                                    Enable caching
+
+
+                                                    Cache Duration (hours):
+
+
+
+                                                    Browser caching
+
+
+                                                    GZIP compression
+
+
+
+
+                                                CDN & Storage
+
+                                                    Enable CDN
+
+
+                                                    CDN Provider:
+
+                                                        Cloudflare
+                                                        AWS CloudFront
+                                                        Google Cloud CDN
+                                                        Custom CDN
+
+
+
+                                                    Lazy load images
+
+
+                                                    Video preloading
+
+
+
+
+
+
+
+
+                                        Save All Settings
+                                        Reset to Defaults
+                                        Export Settings
+                                        Import Settings
+
+
+
+
+
+                </section>
+
+
+
+
+
+
+
+                                 Super Advanced AI System
+
+
+
+                                    AI System Status
+
+
+
+                                                Neural Network
+                                                100% Active
+
+                                                    Accuracy: 98.5%
+                                                    Processing: 1.2ms
+                                                    Uptime: 99.9%
+
+
+
+
+
+                                                Auto-Fix Engine
+                                                ✅ Active
+
+                                                    Fixed Today: 25
+                                                    Success Rate: 100%
+                                                    Response Time: 0.8s
+
+
+
+
+
+                                                Error Detection
+                                                🔍 Monitoring
+
+                                                    Scans/min: 120
+                                                    Threats Found: 0
+                                                    Prevention Rate: 100%
+
+
+
+
+
+                                                Performance AI
+                                                Excellent
+
+                                                    Optimization: 98%
+                                                    Speed Boost: +45%
+                                                    Efficiency: 99.2%
+
+
+
+
+
+
+
+
+
+                                    AI System Controls
+
+
+                                            Full System Scan
+
+
+                                            Optimize Performance
+
+
+                                            Run Diagnostics
+
+
+                                            Generate AI Report
+
+
+
+
+
+
+                                                Auto Bug Detection
+                                                Automatically detects and fixes bugs in real-time
+                                                Run Detection
+
+
+                                                Code Generation
+                                                AI-powered automatic code generation and optimization
+                                                Generate Code
+
+
+                                                Video Enhancement
+                                                Enhance video quality using AI upscaling and optimization
+                                                Enhance Videos
+
+
+                                                Social Media AI
+                                                Automated social media management and optimization
+                                                Manage Social
+
+
+
+
+
+
+
+                                    AI Learning & Adaptation
+
+
+
+                                                Learning Progress
+
+                                                    87%
+
+                                                System optimization learning
+
+
+
+                                                Pattern Recognition
+
+                                                    93%
+
+                                                User behavior patterns identified
+
+
+
+                                                Predictive Accuracy
+
+                                                    95%
+
+                                                Error prediction accuracy
+
+
+
+
+
+
+                                            Recent AI Insights
+
+
+
+                                                        AI detected potential memory leak - automatically patched
+                                                        2 minutes ago
+
+
+
+
+                                                        Performance optimization increased speed by 23%
+                                                        15 minutes ago
+
+
+
+
+                                                        Security vulnerability prevented before execution
+                                                        1 hour ago
+
+
+
+
+
+
+
+
+
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Floating Action Button -->
+
+
+
+
+
+
+
+
+
+                                Upload
+
+
+
+
+                                Add User
+
+
+
+
+                                Report
+
+
+
+
+
+
+
+        <!-- Notification Panel -->
+
+
+
+                    Notifications
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Load Scripts -->
+    <script src="immediate-button-fix.js?v=1.0.0"></script>
+    <script src="force-black-theme.js?v=3.0.0"></script>
+    <script src="admin-script.js?v=3.0.0"></script>
+    <script src="complete-facebook-fix.js?v=3.0.0"></script>
+
+    <script>
+        // Immediate CSS application on page load
+        (function() {
+            console.log('🎨 Immediate Facebook CSS application...');
+
+            // Apply basic styles immediately
+            document.documentElement.style.background = '#18191a';
+            document.documentElement.style.color = '#e4e6ea';
+            document.body.style.background = '#18191a';
+            document.body.style.color = '#e4e6ea';
+
+            // Force all text to white immediately
+            const style = document.createElement('style');
+            style.innerHTML = `
+                * { 
+                    color: #e4e6ea !important; 
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important; 
+                }
+                body, html { 
+                    background: #18191a !important; 
+                    color: #e4e6ea !important; 
+                }
+            `;
+            document.head.appendChild(style);
+
+            console.log('✅ Immediate CSS applied');
+        })();
+    </script>
+</body>
+</html>

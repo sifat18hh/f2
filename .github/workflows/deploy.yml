@@ -1,0 +1,32 @@
+name: Deploy TubeClone
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: npm start &
+
+    - name: Wait for app to start
+      run: sleep 10
+
+    - name: Health check
+      run: curl -f http://localhost:5000 || exit 1

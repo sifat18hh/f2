@@ -1,0 +1,9 @@
+{
+  "provider": "replit-object-storage",
+  "unlimited": true,
+  "autoSync": true,
+  "compression": true,
+  "encryption": true,
+  "redundancy": 3,
+  "globalAccess": true
+}

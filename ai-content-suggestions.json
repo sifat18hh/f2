@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Top 10 Trending Video Ideas for 2024",
+    "description": "AI-generated content suggestions based on current trends",
+    "tags": [
+      "trending",
+      "2024",
+      "viral",
+      "popular"
+    ],
+    "priority": "high"
+  },
+  {
+    "title": "How to Go Viral on Video Platforms",
+    "description": "Expert tips and strategies for maximum engagement",
+    "tags": [
+      "viral",
+      "tips",
+      "growth",
+      "strategy"
+    ],
+    "priority": "medium"
+  },
+  {
+    "title": "Best Video Editing Techniques",
+    "description": "Professional editing tips for content creators",
+    "tags": [
+      "editing",
+      "tutorial",
+      "professional"
+    ],
+    "priority": "medium"
+  }
+]

@@ -1,0 +1,27 @@
+
+[
+  {
+    "id": 1,
+    "name": "Entertainment",
+    "description": "Fun and entertaining content",
+    "icon": "fas fa-laugh"
+  },
+  {
+    "id": 2,
+    "name": "Education", 
+    "description": "Educational and learning content",
+    "icon": "fas fa-graduation-cap"
+  },
+  {
+    "id": 3,
+    "name": "Music",
+    "description": "Music videos and audio content", 
+    "icon": "fas fa-music"
+  },
+  {
+    "id": 4,
+    "name": "Gaming",
+    "description": "Gaming content and reviews",
+    "icon": "fas fa-gamepad"
+  }
+]

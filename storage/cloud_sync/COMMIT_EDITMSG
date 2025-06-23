@@ -1,0 +1,5 @@
+Checkpoint before assistant change: Enable storing user-generated content externally, avoiding local storage limits
+
+Adds @replit/object-storage to package.json and implements its dependencies for external storage management.
+
+Replit-Commit-Author: Assistant

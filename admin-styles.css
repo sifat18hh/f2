@@ -1,0 +1,1527 @@
+/* Complete Facebook-Style Admin Dashboard CSS - Enhanced with Black Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Force Complete CSS Reset */
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    color: #e4e6ea !important;
+}
+
+:root {
+    --fb-primary: #1877f2;
+    --fb-primary-dark: #166fe5;
+    --fb-secondary: #42a5f5;
+    --fb-success: #42b883;
+    --fb-warning: #ff9800;
+    --fb-danger: #f44336;
+    --fb-white: #ffffff;
+    --fb-black: #000000;
+    --fb-dark: #18191a;
+    --fb-darker: #242526;
+    --fb-light-gray: #3a3b3c;
+    --fb-gray: #4e4f50;
+    --fb-dark-gray: #606770;
+    --fb-border: #3e4042;
+    --fb-text-primary: #e4e6ea;
+    --fb-text-secondary: #b0b3b8;
+    --fb-text-muted: #8a8d91;
+    --fb-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    --fb-shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.6);
+    --fb-shadow-deep: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --fb-radius: 8px;
+    --fb-radius-large: 12px;
+    --fb-avatar-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Force HTML and Body - Complete Facebook Black Theme */
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-x: hidden !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background: var(--fb-dark) !important;
+    color: var(--fb-text-primary) !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    background-image: none !important;
+    font-size: 14px !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;
+    overflow-x: hidden !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background: var(--fb-dark) !important;
+    color: var(--fb-text-primary) !important;
+    line-height: 1.5 !important;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    background-image: none !important;
+    font-size: 14px !important;
+}
+
+/* Admin Container - Complete Facebook Black Theme */
+.admin-container {
+    min-height: 100vh !important;
+    background: var(--fb-dark) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Facebook-Style Admin Header - Black Theme */
+.admin-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    background: var(--fb-darker) !important;
+    border-bottom: 1px solid var(--fb-border) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 16px !important;
+    z-index: 1000 !important;
+    box-shadow: var(--fb-shadow) !important;
+    backdrop-filter: blur(10px) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+}
+
+.header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.header-left h1 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--fb-text-primary) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.header-left h1 i {
+    font-size: 24px !important;
+    color: var(--fb-primary) !important;
+    animation: headerIconPulse 2s infinite ease-in-out !important;
+}
+
+.header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+/* Facebook-Style AI Status Indicator - Black Theme */
+.ai-status .ai-indicator {
+    background: linear-gradient(135deg, var(--fb-success), #4caf50) !important;
+    color: var(--fb-white) !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    box-shadow: var(--fb-shadow) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    animation: statusPulse 2s infinite ease-in-out !important;
+}
+
+/* Facebook-Style User Info with Avatar - Black Theme */
+.user-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    color: var(--fb-text-primary) !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    padding: 8px 12px !important;
+    border-radius: var(--fb-radius) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+.user-info:hover {
+    background: var(--fb-light-gray) !important;
+}
+
+.user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--fb-white) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    box-shadow: var(--fb-avatar-shadow) !important;
+    animation: avatarFloat 3s infinite ease-in-out !important;
+}
+
+/* Facebook-Style Logout Button - Black Theme */
+.logout-btn {
+    background: var(--fb-danger) !important;
+    color: var(--fb-white) !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: var(--fb-radius) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: var(--fb-shadow) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.logout-btn:hover {
+    background: #d32f2f !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--fb-shadow-hover) !important;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none !important;
+    background: none !important;
+    border: none !important;
+    color: var(--fb-text-primary) !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+    border-radius: var(--fb-radius) !important;
+    transition: background 0.2s ease !important;
+}
+
+.mobile-menu-toggle:hover {
+    background: var(--fb-light-gray) !important;
+}
+
+/* Facebook-Style Admin Sidebar - Black Theme */
+.admin-sidebar {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 280px !important;
+    height: calc(100vh - 60px) !important;
+    background: var(--fb-darker) !important;
+    border-right: 1px solid var(--fb-border) !important;
+    padding: 16px 0 !important;
+    overflow-y: auto !important;
+    z-index: 999 !important;
+    box-shadow: var(--fb-shadow) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+}
+
+.admin-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Facebook-Style Navigation Items - Black Theme */
+.admin-nav-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 12px 16px !important;
+    color: var(--fb-text-primary) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    transition: all 0.2s ease !important;
+    border-radius: var(--fb-radius) !important;
+    margin: 2px 8px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+}
+
+.admin-nav-item:hover {
+    background: var(--fb-light-gray) !important;
+    color: var(--fb-primary) !important;
+    transform: translateX(4px) !important;
+}
+
+.admin-nav-item.active {
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+    color: var(--fb-white) !important;
+    font-weight: 600 !important;
+    box-shadow: var(--fb-shadow) !important;
+}
+
+.admin-nav-item i {
+    width: 20px !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    color: inherit !important;
+}
+
+/* Facebook-Style Admin Content - Black Theme */
+.admin-content {
+    margin-left: 280px !important;
+    margin-top: 60px !important;
+    padding: 24px !important;
+    min-height: calc(100vh - 60px) !important;
+    flex: 1 !important;
+    background: var(--fb-dark) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+    color: var(--fb-text-primary) !important;
+}
+
+.admin-content h2 {
+    color: var(--fb-text-primary) !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.admin-content h2 i {
+    color: var(--fb-primary) !important;
+    font-size: 24px !important;
+    animation: iconBounce 2s infinite ease-in-out !important;
+}
+
+/* Admin Sections */
+.admin-section {
+    display: none !important;
+    animation: fadeInUp 0.4s ease-out !important;
+}
+
+.admin-section.active {
+    display: block !important;
+}
+
+/* Facebook-Style Stats Grid - Black Theme */
+.stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 32px !important;
+}
+
+/* Facebook-Style Stat Cards - Black Theme */
+.stat-card {
+    background: var(--fb-darker) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    box-shadow: var(--fb-shadow) !important;
+    border: 1px solid var(--fb-border) !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background-image: none !important;
+    cursor: pointer !important;
+}
+
+.stat-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--fb-shadow-hover) !important;
+    border-color: var(--fb-primary) !important;
+}
+
+/* Facebook-Style Stat Icons - Black Theme */
+.stat-icon {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: var(--fb-radius-large) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 28px !important;
+    color: var(--fb-white) !important;
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+    box-shadow: var(--fb-shadow) !important;
+    position: relative !important;
+    animation: iconPulse 3s infinite ease-in-out !important;
+}
+
+.stat-card h3 {
+    color: var(--fb-text-secondary) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.stat-number {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    color: var(--fb-text-primary) !important;
+    line-height: 1 !important;
+    margin-bottom: 4px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    animation: numberCounter 2s ease-out !important;
+}
+
+.stat-trend {
+    color: var(--fb-text-secondary) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Facebook-Style Buttons - Black Theme - PROPERLY FIXED */
+.admin-btn, button, [type="button"], [type="submit"], [type="reset"] {
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+    color: var(--fb-white) !important;
+    border: none !important;
+    padding: 14px 24px !important;
+    border-radius: var(--fb-radius) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+    box-shadow: var(--fb-shadow) !important;
+    min-height: 48px !important;
+    width: fit-content !important;
+    max-width: none !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    margin: 6px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    line-height: 1.4 !important;
+}
+
+.admin-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent) !important;
+    transition: left 0.5s ease !important;
+}
+
+.admin-btn:hover::before {
+    left: 100% !important;
+}
+
+.admin-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--fb-shadow-hover) !important;
+    background: linear-gradient(135deg, var(--fb-primary-dark), var(--fb-primary)) !important;
+}
+
+.admin-btn.success {
+    background: linear-gradient(135deg, var(--fb-success), #4caf50) !important;
+}
+
+.admin-btn.warning {
+    background: linear-gradient(135deg, var(--fb-warning), #ff9800) !important;
+}
+
+.admin-btn.danger {
+    background: linear-gradient(135deg, var(--fb-danger), #f44336) !important;
+}
+
+.admin-btn.info {
+    background: linear-gradient(135deg, var(--fb-secondary), #2196f3) !important;
+}
+
+/* Facebook-Style Form Elements - Black Theme */
+input, 
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"], 
+input[type="url"], 
+input[type="search"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+textarea, 
+select {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    padding: 16px !important;
+    border-radius: var(--fb-radius) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    font-weight: 400 !important;
+    min-height: 48px !important;
+    outline: none !important;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    border-color: var(--fb-primary) !important;
+    box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2) !important;
+    background: var(--fb-light-gray) !important;
+    transform: translateY(-1px) !important;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: var(--fb-primary) !important;
+}
+
+/* Force All Headings to White Text */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Paragraphs and Text to White */
+p, span, div, a, label {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Cards and Containers to Black Theme */
+.settings-card,
+.ai-control-group,
+.ai-status-display,
+.analytics-card,
+.earnings-overview,
+.earnings-charts,
+.transaction-history,
+.advanced-withdrawal,
+.earnings-analytics,
+.algorithm-status,
+.algorithm-performance,
+.adsense-overview,
+.adsense-controls,
+.ad-performance-chart,
+.monetization-status,
+.seo-status,
+.storage-info,
+.monitoring-display,
+.campaign-creation,
+.campaign-manager,
+.active-campaigns,
+.campaign-analytics,
+.upload-area,
+.upload-tab {
+    background: var(--fb-darker) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 32px !important;
+    box-shadow: var(--fb-shadow) !important;
+    border: 1px solid var(--fb-border) !important;
+    background-image: none !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    transition: all 0.3s ease !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Force Table Styles to Black Theme */
+.table-container {
+    background: var(--fb-darker) !important;
+    border-radius: var(--fb-radius-large) !important;
+    overflow: hidden !important;
+    box-shadow: var(--fb-shadow) !important;
+    border: 1px solid var(--fb-border) !important;
+    margin-bottom: 32px !important;
+    background-image: none !important;
+}
+
+.admin-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 14px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background: var(--fb-darker) !important;
+}
+
+.admin-table thead {
+    background: var(--fb-light-gray) !important;
+    border-bottom: 2px solid var(--fb-border) !important;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 16px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    background: inherit !important;
+}
+
+.admin-table th {
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: var(--fb-text-primary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.admin-table tbody tr {
+    transition: all 0.2s ease !important;
+    background: var(--fb-darker) !important;
+}
+
+.admin-table tbody tr:hover {
+    background: var(--fb-light-gray) !important;
+    transform: scale(1.01) !important;
+}
+
+/* Force Nav Group Titles */
+.nav-group-title {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: var(--fb-text-secondary) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    padding: 0 16px !important;
+    margin-bottom: 8px !important;
+    margin-top: 16px !important;
+}
+
+/* Dashboard Header - PROPERLY POSITIONED */
+.dashboard-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 24px !important;
+    padding: 16px 20px !important;
+    background: var(--fb-darker) !important;
+    border-radius: var(--fb-radius-large) !important;
+    box-shadow: var(--fb-shadow) !important;
+    border: 1px solid var(--fb-border) !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    min-height: 70px !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.dashboard-header h2 {
+    flex: 1 !important;
+    margin: 0 !important;
+    color: var(--fb-text-primary) !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.dashboard-actions {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+}
+
+.dashboard-actions .admin-btn {
+    min-width: 130px !important;
+    max-width: 150px !important;
+    flex-shrink: 0 !important;
+    height: 44px !important;
+    padding: 12px 16px !important;
+    margin: 4px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+}
+
+/* Action Categories - PROPERLY POSITIONED */
+.action-categories {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 20px !important;
+}
+
+.action-category {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 20px !important;
+    box-shadow: var(--fb-shadow) !important;
+    min-height: 180px !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.action-category h4 {
+    color: var(--fb-text-primary) !important;
+    margin-bottom: 16px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--fb-border) !important;
+    padding-bottom: 8px !important;
+}
+
+.action-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+}
+
+.action-buttons .admin-btn {
+    width: 100% !important;
+    max-width: none !important;
+    justify-content: flex-start !important;
+    min-height: 40px !important;
+    padding: 10px 16px !important;
+    margin: 2px 0 !important;
+    text-align: left !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+}
+
+/* Animations */
+@keyframes gradientShift {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+@keyframes headerIconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes avatarFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-2px); }
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes numberCounter {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive Design - PROPERLY POSITIONED */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        transform: translateX(-100%) !important;
+        width: 280px !important;
+        transition: transform 0.3s ease !important;
+    }
+
+    .admin-sidebar.mobile-active {
+        transform: translateX(0) !important;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    .admin-content {
+        margin-left: 0 !important;
+        padding: 16px !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+
+    /* Mobile Button Fixes - PROPERLY POSITIONED */
+    .dashboard-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        padding: 16px !important;
+        gap: 12px !important;
+        min-height: auto !important;
+    }
+
+    .dashboard-actions {
+        justify-content: center !important;
+        width: 100% !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .dashboard-actions .admin-btn {
+        width: calc(50% - 4px) !important;
+        max-width: none !important;
+        margin: 2px !important;
+        min-height: 40px !important;
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .section-controls {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 12px !important;
+        justify-content: center !important;
+    }
+
+    .section-controls .admin-btn {
+        width: calc(50% - 4px) !important;
+        max-width: none !important;
+        margin: 2px !important;
+        min-height: 36px !important;
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    .action-categories {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .action-category {
+        padding: 16px !important;
+        min-height: auto !important;
+    }
+
+    .action-buttons .admin-btn {
+        font-size: 13px !important;
+        padding: 8px 14px !important;
+        min-height: 36px !important;
+        margin: 2px 0 !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+}
+
+/* Force All Text Elements to White */
+* {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Override any blue or other colors */
+a {
+    color: var(--fb-primary) !important;
+}
+
+a:hover {
+    color: var(--fb-secondary) !important;
+}
+
+/* Ensure all content areas have proper background */
+.admin-main {
+    background: var(--fb-dark) !important;
+}
+
+/* Force all dropdowns and selects */
+option {
+    background: var(--fb-darker) !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Enhanced Element Coverage - Facebook Black Theme */
+div, span, section, article, aside, nav, header, footer, main {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force all possible card containers */
+.card, .panel, .widget, .module, .component, .container, .wrapper, .box {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+}
+
+/* Force all possible sections */
+.section, .content, .main, .body, .area {
+    background: var(--fb-dark) !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Force all possible text elements */
+.text, .title, .subtitle, .caption, .description, .info, .details {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Enhanced User Dropdown Menu */
+.user-menu-dropdown {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    border-radius: var(--fb-radius-large) !important;
+    box-shadow: var(--fb-shadow-hover) !important;
+    padding: 8px !important;
+    min-width: 180px !important;
+    z-index: 1001 !important;
+    animation: fadeInDown 0.3s ease !important;
+}
+
+.user-menu-dropdown button {
+    width: 100% !important;
+    background: transparent !important;
+    color: var(--fb-text-primary) !important;
+    border: none !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 2px 0 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.user-menu-dropdown button:hover {
+    background: var(--fb-light-gray) !important;
+    color: var(--fb-primary) !important;
+    transform: translateX(4px) !important;
+}
+
+.user-menu-dropdown button.logout-option {
+    color: var(--fb-danger) !important;
+}
+
+.user-menu-dropdown button.logout-option:hover {
+    background: rgba(244, 67, 54, 0.1) !important;
+    color: var(--fb-danger) !important;
+}
+
+/* Modal Styles for Profile and Settings */
+.modal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10000 !important;
+    animation: fadeIn 0.3s ease !important;
+}
+
+.modal-content {
+    background: var(--fb-darker) !important;
+    border-radius: var(--fb-radius-large) !important;
+    box-shadow: var(--fb-shadow-deep) !important;
+    border: 1px solid var(--fb-border) !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    animation: slideInUp 0.3s ease !important;
+}
+
+.modal-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.modal-header h2 {
+    color: var(--fb-text-primary) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.close-btn:hover {
+    background: var(--fb-light-gray) !important;
+    border-radius: 50% !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Force all lists */
+ul, ol, li {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force all form labels */
+.label, .field-label, .form-label {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Comprehensive Button Layout Fixes - ALL BUTTONS - PROPERLY POSITIONED */
+button, .btn, .button, [role="button"], 
+.section-controls .admin-btn,
+.dashboard-actions .admin-btn,
+.action-buttons .admin-btn,
+.upload-tabs .tab-btn,
+.bulk-controls .admin-btn,
+.filter-controls .admin-btn,
+.moderation-controls .admin-btn,
+.video-management-grid .admin-btn,
+.admin-btn {
+    background: linear-gradient(135deg, var(--fb-primary), var(--fb-secondary)) !important;
+    color: var(--fb-white) !important;
+    border: none !important;
+    border-radius: var(--fb-radius) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    box-shadow: var(--fb-shadow) !important;
+    min-height: 44px !important;
+    margin: 4px !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    line-height: 1.4 !important;
+    width: auto !important;
+    max-width: fit-content !important;
+    position: relative !important;
+    text-align: center !important;
+    overflow: visible !important;
+    z-index: 1 !important;
+}
+
+/* Section Controls - PROPERLY POSITIONED */
+.section-controls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+    padding: 16px !important;
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    border-radius: var(--fb-radius-large) !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 60px !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.section-controls .admin-btn {
+    flex: 0 0 auto !important;
+    min-width: 120px !important;
+    max-width: 160px !important;
+    height: 40px !important;
+    padding: 8px 16px !important;
+    margin: 2px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+}
+
+/* Force all possible interactive elements */
+.clickable, .interactive, .action, .control {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Enhanced table coverage */
+.data-table, .grid, .list-view {
+    background: var(--fb-darker) !important;
+    color: var(--fb-text-primary) !important;
+    border: 1px solid var(--fb-border) !important;
+}
+
+/* Force all possible status indicators */
+.status, .badge, .indicator, .flag, .marker {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Enhanced navigation coverage */
+.menu, .navigation, .nav-menu, .sidebar-menu {
+    background: var(--fb-darker) !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Force all possible content areas */
+.content-area, .main-content, .primary-content, .secondary-content {
+    background: var(--fb-dark) !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Enhanced modal and overlay coverage */
+.modal, .overlay, .popup, .dialog, .dropdown {
+    background: var(--fb-darker) !important;
+    color: var(--fb-text-primary) !important;
+    border: 1px solid var(--fb-border) !important;
+}
+
+/* Header Right Actions - PROPERLY POSITIONED */
+.header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+}
+
+.header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: nowrap !important;
+}
+
+.header-btn {
+    background: var(--fb-light-gray) !important;
+    color: var(--fb-text-primary) !important;
+    border: none !important;
+    padding: 10px 12px !important;
+    border-radius: var(--fb-radius) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    font-size: 16px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+}
+
+.header-btn:hover {
+    background: var(--fb-primary) !important;
+    color: var(--fb-white) !important;
+    transform: translateY(-1px) !important;
+}
+
+.notification-badge, .message-badge {
+    position: absolute !important;
+    top: -4px !important;
+    right: -4px !important;
+    background: var(--fb-danger) !important;
+    color: var(--fb-white) !important;
+    border-radius: 50% !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid var(--fb-darker) !important;
+}
+
+.user-profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px 12px !important;
+    border-radius: var(--fb-radius) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+.user-profile:hover {
+    background: var(--fb-light-gray) !important;
+}
+
+.user-menu-dropdown {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    border-radius: var(--fb-radius-large) !important;
+    box-shadow: var(--fb-shadow-hover) !important;
+    padding: 12px !important;
+    min-width: 200px !important;
+    z-index: 1001 !important;
+    display: none !important;
+    animation: fadeInDown 0.3s ease !important;
+}
+
+.user-menu-dropdown.show {
+    display: block !important;
+}
+
+.user-profile {
+    position: relative !important;
+    cursor: pointer !important;
+    padding: 8px 12px !important;
+    border-radius: var(--fb-radius) !important;
+    transition: all 0.2s ease !important;
+}
+
+.user-profile:hover {
+    background: var(--fb-light-gray) !important;
+}
+
+.user-profile:hover .user-menu-dropdown {
+    display: block !important;
+}
+
+.user-menu-dropdown button {
+    width: 100% !important;
+    background: transparent !important;
+    color: var(--fb-text-primary) !important;
+    border: none !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 2px 0 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+.user-menu-dropdown button:hover {
+    background: var(--fb-light-gray) !important;
+    color: var(--fb-primary) !important;
+    transform: translateX(4px) !important;
+}
+
+.user-menu-dropdown button i {
+    width: 16px !important;
+    text-align: center !important;
+}
+
+.logout-option {
+    color: var(--fb-danger) !important;
+}
+
+.logout-option:hover {
+    background: rgba(244, 67, 54, 0.1) !important;
+    color: var(--fb-danger) !important;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-menu-dropdown button {
+    width: 100% !important;
+    background: transparent !important;
+    color: var(--fb-text-primary) !important;
+    border: none !important;
+    padding: 10px 12px !important;
+    text-align: left !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 2px 0 !important;
+}
+
+.user-menu-dropdown button:hover {
+    background: var(--fb-light-gray) !important;
+}
+
+/* Force all typography elements */
+.heading, .title, .subtitle, .text-content {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Complete coverage override */
+* {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Specific admin dashboard coverage */
+[class*="admin"], [class*="dashboard"], [class*="panel"], [class*="widget"] {
+    background: var(--fb-darker) !important;
+    color: var(--fb-text-primary) !important;
+    border: 1px solid var(--fb-border) !important;
+}
+
+/* Force immediate application */
+body * {
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Upload Elements to Black Theme */
+.upload-area, .upload-tab, .upload-section, .bulk-upload-section, .upload-tabs, .tab-btn {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Earnings Elements to Black Theme */
+.earnings-overview, .earnings-analytics, .earnings-charts, .transaction-history, .advanced-withdrawal {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Google Ads Elements to Black Theme */
+.campaign-creation, .campaign-manager, .active-campaigns, .campaign-analytics {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All AdSense Elements to Black Theme */
+.adsense-overview, .adsense-controls, .ad-performance-chart, .monetization-status {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All User Management Elements to Black Theme */
+.user-analytics, .user-roles, .subscriptions, .user-feedback {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Analytics Elements to Black Theme */
+.analytics-overview, .real-time-analytics, .reports, .data-export {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All AI System Elements to Black Theme */
+.algorithm-status, .algorithm-performance, .automation, .machine-learning {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All System Elements to Black Theme */
+.security, .backup-restore, .monitoring-display, .logs {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Storage Elements to Black Theme */
+.storage-info, .cdn-management, .file-manager {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All SEO Elements to Black Theme */
+.seo-status, .social-media, .email-marketing, .push-notifications, .affiliate-program {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Dashboard Widgets to Black Theme */
+.dashboard-widget, .activity-feed, .system-health, .recent-uploads, .quick-stats {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force All Content Moderation Elements to Black Theme */
+.content-moderation, .categories, .thumbnails, .playlists {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Ensure ALL sections have black theme */
+.admin-section {
+    background: var(--fb-dark) !important;
+    color: var(--fb-text-primary) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}
+
+/* Force all grid containers */
+.stats-grid, .dashboard-grid, .ai-status-grid, .action-categories, .action-category {
+    background: transparent !important;
+    color: var(--fb-text-primary) !important;
+}
+
+/* Force all status indicators */
+.status-indicator, .ai-indicator, .notification-badge, .message-badge {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Force section headers */
+.section-controls, .dashboard-header, .video-management-grid, .video-filters, .bulk-actions {
+    background: var(--fb-darker) !important;
+    border: 1px solid var(--fb-border) !important;
+    color: var(--fb-text-primary) !important;
+    border-radius: var(--fb-radius-large) !important;
+    padding: 20px !important;
+    margin-bottom: 20px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif !important;
+}

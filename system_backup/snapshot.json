@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-06-23T17:09:23.318Z",
+  "nodeVersion": "v18.20.5",
+  "packageCount": 246,
+  "fileCount": 104,
+  "systemHealth": {
+    "memory": {
+      "rss": 73355264,
+      "heapTotal": 16261120,
+      "heapUsed": 15043784,
+      "external": 1481421,
+      "arrayBuffers": 384144
+    },
+    "uptime": 4500.286338589,
+    "nodeVersion": "v18.20.5",
+    "packageStatus": true,
+    "backupStatus": true
+  },
+  "status": "healthy"
+}

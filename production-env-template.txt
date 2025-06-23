@@ -1,0 +1,36 @@
+
+# Production Environment Variables Template
+# Copy these to your production environment (Replit Secrets)
+
+# bKash Configuration (Get from bKash Merchant Portal)
+BKASH_USERNAME=your_production_bkash_username
+BKASH_PASSWORD=your_production_bkash_password
+BKASH_APP_KEY=your_production_bkash_app_key
+BKASH_APP_SECRET=your_production_bkash_app_secret
+BKASH_BASE_URL=https://tokenized.pay.bka.sh/v1.2.0-beta
+BKASH_MODE=live
+
+# PayPal Configuration (Get from PayPal Developer Portal)
+PAYPAL_CLIENT_ID=your_production_paypal_client_id
+PAYPAL_CLIENT_SECRET=your_production_paypal_client_secret
+PAYPAL_MODE=live
+
+# Bank Transfer Configuration
+BANK_API_KEY=your_bank_api_key
+BANK_CODE=your_bank_code
+BANK_MODE=live
+
+# Crypto Payment Configuration
+CRYPTO_API_KEY=your_crypto_gateway_api_key
+CRYPTO_WEBHOOK_SECRET=your_crypto_webhook_secret
+
+# Security
+NODE_ENV=production
+SESSION_SECRET=your_super_secure_session_secret_here
+
+# Database (if using external database)
+DATABASE_URL=your_production_database_url
+
+# Monitoring
+ENABLE_MONITORING=true
+LOG_LEVEL=info

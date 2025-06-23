@@ -1,0 +1,5 @@
+Checkpoint before assistant change: Enable unlimited storage for videos and enhance website security
+
+Implements unlimited storage via UnlimitedStorageManager and enhances security with CSRF protection, rate limiting, and security headers.
+
+Replit-Commit-Author: Assistant

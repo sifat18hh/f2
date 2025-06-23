@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-06-23T16:24:23.321Z",
+  "memory": {
+    "rss": 71356416,
+    "heapTotal": 15474688,
+    "heapUsed": 14103256,
+    "external": 1439038,
+    "arrayBuffers": 341761
+  },
+  "cpuUsage": {
+    "user": 679501,
+    "system": 142367
+  },
+  "uptime": 1800.289297676,
+  "activeConnections": 22,
+  "responseTime": 126
+}

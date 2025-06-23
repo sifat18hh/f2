@@ -1,0 +1,20 @@
+{
+  "name": "TubeClone",
+  "type": "web",
+  "version": "1.0.0",
+  "build": {
+    "commands": [
+      "npm install"
+    ]
+  },
+  "start": {
+    "command": "npm start"
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "$PORT"
+  },
+  "healthCheck": "/",
+  "domains": [],
+  "redirects": []
+}

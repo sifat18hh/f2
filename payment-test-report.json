@@ -1,0 +1,73 @@
+{
+  "timestamp": "2025-06-20T19:11:04.963Z",
+  "totalTests": 16,
+  "passedTests": 16,
+  "failedTests": 0,
+  "successRate": "100.0%",
+  "results": [
+    {
+      "name": "Balance Available",
+      "pass": true
+    },
+    {
+      "name": "Total Earnings",
+      "pass": true
+    },
+    {
+      "name": "Transactions Array",
+      "pass": true
+    },
+    {
+      "name": "Admin Transaction",
+      "pass": true
+    },
+    {
+      "name": "Withdrawal Validation $5",
+      "pass": true
+    },
+    {
+      "name": "Withdrawal Validation $10",
+      "pass": true
+    },
+    {
+      "name": "Withdrawal Validation $1000",
+      "pass": true
+    },
+    {
+      "name": "Withdrawal Validation $15000",
+      "pass": true
+    },
+    {
+      "name": "BKASH Payment Method",
+      "pass": true
+    },
+    {
+      "name": "BANK Payment Method",
+      "pass": true
+    },
+    {
+      "name": "PAYPAL Payment Method",
+      "pass": true
+    },
+    {
+      "name": "CRYPTO Payment Method",
+      "pass": true
+    },
+    {
+      "name": "Transaction Format",
+      "pass": true
+    },
+    {
+      "name": "Transaction Timestamps",
+      "pass": true
+    },
+    {
+      "name": "Transaction Status",
+      "pass": true
+    },
+    {
+      "name": "Admin Credit Present",
+      "pass": true
+    }
+  ]
+}

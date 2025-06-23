@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-06-23T16:46:23.339Z",
+  "serverStatus": true,
+  "databaseStatus": true,
+  "filesystemStatus": true,
+  "memoryUsage": {
+    "rss": 71634944,
+    "heapTotal": 15998976,
+    "heapUsed": 14485320,
+    "external": 1410191,
+    "arrayBuffers": 312914
+  },
+  "uptime": 3120.308046038
+}

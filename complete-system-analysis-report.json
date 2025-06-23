@@ -1,0 +1,158 @@
+{
+  "timestamp": "2025-06-20T17:29:28.457Z",
+  "systemHealth": {
+    "serverStatus": true,
+    "packageStatus": true,
+    "storageStatus": true,
+    "backupStatus": 3,
+    "uptime": 0.061700155,
+    "memory": {
+      "rss": 45613056,
+      "heapTotal": 5087232,
+      "heapUsed": 4520000,
+      "external": 536704,
+      "arrayBuffers": 34853
+    },
+    "nodeVersion": "v18.20.5",
+    "score": 90,
+    "status": "Excellent"
+  },
+  "security": {
+    "sensitiveFiles": [
+      "secure_config/admin-credentials.json",
+      "storage/cloud_sync/stscredentials.js"
+    ],
+    "filePermissions": 2,
+    "credentialExposure": [],
+    "codeVulnerabilities": [
+      {
+        "file": "storage/cloud_sync/baseexternalclient.js",
+        "pattern": "exec\\s*\\("
+      },
+      {
+        "file": "storage/cloud_sync/file.js",
+        "pattern": "exec\\s*\\("
+      },
+      {
+        "file": "storage/cloud_sync/oauth2client.js",
+        "pattern": "exec\\s*\\("
+      },
+      {
+        "file": "storage/cloud_sync/strnum.js",
+        "pattern": "exec\\s*\\("
+      }
+    ],
+    "authenticationSecurity": "Admin accounts present",
+    "score": 60,
+    "status": "At Risk"
+  },
+  "performance": {
+    "bundleSize": 470842,
+    "databaseSize": 2472,
+    "imageOptimization": "Standard optimization",
+    "cacheStatus": "Basic caching implemented",
+    "loadTime": 1000,
+    "score": 100,
+    "status": "Excellent"
+  },
+  "files": {
+    "totalFiles": 481,
+    "totalSize": 16334701,
+    "duplicates": 19,
+    "largeFiles": [
+      {
+        "file": "storage/cloud_backup/1750231554260-1746376848908.mp4",
+        "size": 1071380
+      },
+      {
+        "file": "storage/cloud_backup/1750347269146-1746376848908.mp4",
+        "size": 1071380
+      },
+      {
+        "file": "storage/cloud_backup/1750354029685-1746376848908.mp4",
+        "size": 1071380
+      },
+      {
+        "file": "uploads/1750231554260-1746376848908.mp4",
+        "size": 1071380
+      },
+      {
+        "file": "uploads/1750347269146-1746376848908.mp4",
+        "size": 1071380
+      },
+      {
+        "file": "uploads/1750354029685-1746376848908.mp4",
+        "size": 1071380
+      }
+    ],
+    "organization": 100
+  },
+  "database": {
+    "userCount": 4,
+    "videoCount": 3,
+    "categoryCount": 5,
+    "adCount": 0,
+    "dataIntegrity": 100,
+    "backupStatus": true
+  },
+  "authentication": {
+    "adminUsers": 1,
+    "userSessions": "No active sessions detected",
+    "passwordSecurity": "Standard security measures in place",
+    "loginSystem": true
+  },
+  "features": {
+    "videoUpload": {
+      "status": "working",
+      "directory": true,
+      "uploadedFiles": 3
+    },
+    "userManagement": {
+      "status": "working",
+      "userFile": true,
+      "userCount": 4
+    },
+    "adminPanel": {
+      "status": "working",
+      "adminFile": true,
+      "adminScript": true
+    },
+    "adsSystem": {
+      "status": "working",
+      "adsFile": true,
+      "adCount": 0
+    },
+    "apiEndpoints": {
+      "status": "working",
+      "count": 7,
+      "files": [
+        "ai-monitor-api.js",
+        "analysis-api.js",
+        "auto-system-api.js",
+        "object-storage-api.js",
+        "storage/cloud_sync/object-storage-api.js",
+        "storage-api.js",
+        "super-ai-api.js"
+      ]
+    },
+    "storageSystem": {
+      "status": "working",
+      "storageDir": true,
+      "backupSystems": true
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "High",
+      "category": "Security",
+      "issue": "Security vulnerabilities detected",
+      "action": "Move sensitive files to secure directory and fix code vulnerabilities"
+    }
+  ],
+  "summary": {
+    "overallScore": 83,
+    "status": "Good",
+    "criticalIssues": 1,
+    "totalRecommendations": 1
+  }
+}

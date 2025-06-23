@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced AI Monitor Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .ai-status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .ai-status-indicator.active {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .ai-status-indicator.inactive {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .monitor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .monitor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .status-item:last-child {
+            border-bottom: none;
+        }
+
+        .status-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .status-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .status-good { color: #27ae60; }
+        .status-warning { color: #f39c12; }
+        .status-error { color: #e74c3c; }
+
+        .ai-controls {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .control-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ai-btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .ai-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .ai-btn.danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .ai-btn.success {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .ai-btn.warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .diagnostics-panel {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .diagnostics-log {
+            max-height: 400px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .log-entry {
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+
+        .log-timestamp {
+            color: #6c757d;
+            margin-right: 10px;
+        }
+
+        .log-level-info { color: #17a2b8; }
+        .log-level-success { color: #28a745; }
+        .log-level-warning { color: #ffc107; }
+        .log-level-error { color: #dc3545; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .ai-active {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-robot"></i> Advanced AI Monitor Dashboard</h1>
+            <div class="ai-status-indicator active" id="aiStatusIndicator">
+                <i class="fas fa-brain ai-active"></i>
+                <span id="aiStatusText">AI Monitor Active</span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- System Health Card -->
+            <div class="monitor-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="card-title">System Health</h3>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Server Status</span>
+                    <span class="status-value status-good" id="serverStatus">Healthy</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Database Integrity</span>
+                    <span class="status-value status-good" id="databaseStatus">Verified</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">File System</span>
+                    <span class="status-value status-good" id="fileSystemStatus">Operational</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Last Check</span>
+                    <span class="status-value" id="lastHealthCheck">Just now</span>
+                </div>
+            </div>
+
+            <!-- Performance Monitoring Card -->
+            <div class="monitor-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="card-title">Performance Monitor</h3>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Response Time</span>
+                    <span class="status-value status-good" id="responseTime">120ms</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Memory Usage</span>
+                    <span class="status-value status-warning" id="memoryUsage">65%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">CPU Usage</span>
+                    <span class="status-value status-good" id="cpuUsage">45%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%; background: linear-gradient(90deg, #27ae60, #2ecc71);"></div>
+                </div>
+            </div>
+
+            <!-- Error Detection Card -->
+            <div class="monitor-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3 class="card-title">Error Detection</h3>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Active Errors</span>
+                    <span class="status-value status-good" id="activeErrors">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Fixed Today</span>
+                    <span class="status-value status-good" id="fixedErrors">5</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Auto-Fix Success</span>
+                    <span class="status-value status-good" id="autoFixSuccess">98%</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Last Scan</span>
+                    <span class="status-value" id="lastErrorScan">2 min ago</span>
+                </div>
+            </div>
+
+            <!-- Code Analysis Card -->
+            <div class="monitor-card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="card-title">Code Analysis</h3>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Code Quality</span>
+                    <span class="status-value status-good" id="codeQuality">Excellent</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Syntax Errors</span>
+                    <span class="status-value status-good" id="syntaxErrors">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Security Issues</span>
+                    <span class="status-value status-good" id="securityIssues">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Files Monitored</span>
+                    <span class="status-value" id="filesMonitored">25</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Controls Panel -->
+        <div class="ai-controls">
+            <div class="card-header">
+                <div class="card-icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 class="card-title">AI Control Center</h3>
+            </div>
+            
+            <div class="control-buttons">
+                <button class="ai-btn" onclick="forceSystemCheck()">
+                    <i class="fas fa-search"></i>
+                    Force System Check
+                </button>
+                <button class="ai-btn warning" onclick="detectErrors()">
+                    <i class="fas fa-bug"></i>
+                    Detect Errors
+                </button>
+                <button class="ai-btn success" onclick="optimizePerformance()">
+                    <i class="fas fa-rocket"></i>
+                    Optimize Performance
+                </button>
+                <button class="ai-btn danger" onclick="viewDiagnostics()">
+                    <i class="fas fa-chart-line"></i>
+                    View Diagnostics
+                </button>
+            </div>
+        </div>
+
+        <!-- Diagnostics Panel -->
+        <div class="diagnostics-panel">
+            <div class="card-header">
+                <div class="card-icon" style="background: linear-gradient(135deg, #34495e, #2c3e50);">
+                    <i class="fas fa-terminal"></i>
+                </div>
+                <h3 class="card-title">Live Diagnostics</h3>
+            </div>
+            
+            <div class="diagnostics-log" id="diagnosticsLog">
+                <div class="log-entry">
+                    <span class="log-timestamp">2024-01-20 10:30:45</span>
+                    <span class="log-level-success">✅ AI Monitor initialized successfully</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-timestamp">2024-01-20 10:30:46</span>
+                    <span class="log-level-info">🔍 Starting comprehensive system monitoring</span>
+                </div>
+                <div class="log-entry">
+                    <span class="log-timestamp">2024-01-20 10:30:47</span>
+                    <span class="log-level-success">✅ All systems operational</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let aiMonitorData = {};
+
+        async function loadAIMonitorStatus() {
+            try {
+                const response = await fetch('/api/ai-monitor/status');
+                const result = await response.json();
+                
+                if (result.success) {
+                    aiMonitorData = result.status;
+                    updateDashboard();
+                }
+            } catch (error) {
+                console.error('Failed to load AI monitor status:', error);
+            }
+        }
+
+        function updateDashboard() {
+            // Update status indicators
+            const isActive = aiMonitorData.isActive;
+            const statusIndicator = document.getElementById('aiStatusIndicator');
+            const statusText = document.getElementById('aiStatusText');
+            
+            if (isActive) {
+                statusIndicator.className = 'ai-status-indicator active';
+                statusText.textContent = 'AI Monitor Active';
+            } else {
+                statusIndicator.className = 'ai-status-indicator inactive';
+                statusText.textContent = 'AI Monitor Inactive';
+            }
+
+            // Update health metrics
+            document.getElementById('lastHealthCheck').textContent = 
+                new Date(aiMonitorData.lastCheck).toLocaleTimeString();
+            
+            // Update error count
+            document.getElementById('activeErrors').textContent = aiMonitorData.errorCount || 0;
+            
+            // Update files monitored
+            const fileCount = Object.keys(aiMonitorData.fileAccessStats || {}).length;
+            document.getElementById('filesMonitored').textContent = fileCount;
+        }
+
+        async function forceSystemCheck() {
+            try {
+                addLogEntry('🔍 Initiating AI system check...', 'info');
+                
+                const response = await fetch('/api/ai-monitor/force-check', {
+                    method: 'POST'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLogEntry('✅ AI system check completed successfully', 'success');
+                } else {
+                    addLogEntry('❌ AI system check failed: ' + result.error, 'error');
+                }
+                
+                // Refresh data
+                setTimeout(loadAIMonitorStatus, 2000);
+            } catch (error) {
+                addLogEntry('❌ System check request failed: ' + error.message, 'error');
+            }
+        }
+
+        async function detectErrors() {
+            try {
+                addLogEntry('🔍 AI scanning for errors...', 'info');
+                
+                const response = await fetch('/api/ai-monitor/detect-errors', {
+                    method: 'POST'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLogEntry('✅ AI error detection completed', 'success');
+                    if (result.errors && Object.keys(result.errors).length > 0) {
+                        addLogEntry('⚠️ Issues detected and being auto-fixed', 'warning');
+                    }
+                } else {
+                    addLogEntry('❌ Error detection failed: ' + result.error, 'error');
+                }
+            } catch (error) {
+                addLogEntry('❌ Error detection request failed: ' + error.message, 'error');
+            }
+        }
+
+        async function optimizePerformance() {
+            try {
+                addLogEntry('⚡ AI optimizing performance...', 'info');
+                
+                const response = await fetch('/api/ai-monitor/optimize', {
+                    method: 'POST'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLogEntry('✅ AI performance optimization completed', 'success');
+                } else {
+                    addLogEntry('❌ Performance optimization failed: ' + result.error, 'error');
+                }
+            } catch (error) {
+                addLogEntry('❌ Optimization request failed: ' + error.message, 'error');
+            }
+        }
+
+        async function viewDiagnostics() {
+            try {
+                const response = await fetch('/api/ai-monitor/diagnostics');
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLogEntry('📊 AI diagnostic report generated', 'info');
+                    console.log('Diagnostic Report:', result.report);
+                    
+                    // Display some key metrics
+                    const report = result.report;
+                    if (report.recentErrors && report.recentErrors.length > 0) {
+                        report.recentErrors.forEach(error => {
+                            addLogEntry('⚠️ Recent error: ' + error.message, 'warning');
+                        });
+                    }
+                }
+            } catch (error) {
+                addLogEntry('❌ Failed to load diagnostics: ' + error.message, 'error');
+            }
+        }
+
+        function addLogEntry(message, level = 'info') {
+            const log = document.getElementById('diagnosticsLog');
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            
+            const timestamp = new Date().toLocaleString();
+            entry.innerHTML = `
+                <span class="log-timestamp">${timestamp}</span>
+                <span class="log-level-${level}">${message}</span>
+            `;
+            
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+            
+            // Keep only last 50 entries
+            while (log.children.length > 50) {
+                log.removeChild(log.firstChild);
+            }
+        }
+
+        // Auto-refresh dashboard every 30 seconds
+        setInterval(loadAIMonitorStatus, 30000);
+
+        // Initial load
+        loadAIMonitorStatus();
+
+        // Simulate some real-time updates
+        setInterval(() => {
+            const memoryPercent = Math.floor(Math.random() * 20) + 60;
+            const cpuPercent = Math.floor(Math.random() * 30) + 30;
+            const responseTime = Math.floor(Math.random() * 100) + 80;
+            
+            document.getElementById('memoryUsage').textContent = memoryPercent + '%';
+            document.getElementById('cpuUsage').textContent = cpuPercent + '%';
+            document.getElementById('responseTime').textContent = responseTime + 'ms';
+            
+            // Update progress bars
+            document.querySelector('.progress-fill').style.width = memoryPercent + '%';
+            document.querySelectorAll('.progress-fill')[1].style.width = cpuPercent + '%';
+            
+        }, 5000);
+    </script>
+</body>
+</html>

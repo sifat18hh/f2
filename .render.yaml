@@ -1,0 +1,7 @@
+services:
+  - type: static
+    name: mynowproject
+    repo: https://github.com/sifat18hh/MyNowProject
+    branch: main
+    buildCommand: ""
+    staticPublishPath: /
